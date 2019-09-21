@@ -1,0 +1,21 @@
+{
+  "name": "lucaspickering.me",
+  "version": "1.0.0",
+  "description": "My website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasPickering/lucaspickering.me.git"
+  },
+  "author": "Lucas Pickering",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LucasPickering/lucaspickering.me/issues"
+  },
+  "homepage": "https://github.com/LucasPickering/lucaspickering.me#readme",
+  "scripts": {
+    "start": "http-server public/"
+  },
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}

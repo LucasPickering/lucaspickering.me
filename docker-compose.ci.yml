@@ -1,0 +1,6 @@
+version: "3"
+
+services:
+  static:
+    build: ./
+    image: lucaspickering/lucaspickering.me-static:latest
