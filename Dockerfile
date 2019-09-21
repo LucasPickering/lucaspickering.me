@@ -1,2 +1,2 @@
 FROM alpine:latest
-COPY ./public/* /app/static
+COPY ./public/* /app/static/
