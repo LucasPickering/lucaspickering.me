@@ -19,7 +19,7 @@
           <h2>About Me</h2>
           <p>
             I like doing just about anything with computers: web development
-            (frontend & backend), networks, game development, systems
+            (frontend & backend), networks, compilers, game development, systems
             programming, robotics, and building keyboards. I graduated from
             Northeastern University in 2019 and now live in the Boston area.
           </p>
@@ -45,11 +45,17 @@
           </section>
         </section>
 
-        <section>
+        <section class="projects">
           <h2>Projects</h2>
 
           <section>
-            <h3>Rock Paper Scissors</h3>
+            <div class="project-header">
+              <h3>Rock Paper Scissors</h3>
+              <nav>
+                <a href="https://rps.lucaspickering.me">Site</a> |
+                <a href="https://github.com/LucasPickering/rps">GitHub</a>
+              </nav>
+            </div>
             <p>
               Webapp for playing Rock Paper Scissors and tracking users'
               matches. Includes pages for browsing match histories and player
@@ -59,40 +65,54 @@
               TypeScript, Python, React, Django, websockets, HTTP/REST,
               PostgreSQL
             </p>
-            <a href="https://rps.lucaspickering.me">Site</a> |
-            <a href="https://github.com/LucasPickering/rps">GitHub</a>
           </section>
 
           <section>
-            <h3>Söze</h3>
+            <div class="project-header">
+              <h3>Söze</h3>
+              <nav>
+                <a href="https://github.com/LucasPickering/soze">GitHub</a>
+              </nav>
+            </div>
             <p>
               Multi-component software & hardware stack to control the LEDs and
               LCD installed in my PC case. Exposes a web page for controlling
               the settings, and runs entirely off a Raspberry Pi.
             </p>
-            <a href="https://github.com/LucasPickering/soze">GitHub</a>
             <p class="caption">
               TypeScript, Python, React, Flask, hardware I/O, concurrency
             </p>
           </section>
 
           <section>
-            <h3>Keskne</h3>
+            <div class="project-header">
+              <h3>Keskne</h3>
+              <nav>
+                <a href="https://github.com/LucasPickering/keskne">GitHub</a>
+              </nav>
+            </div>
             <p>
               Keskne (Estonian for "central") is a set of service and
               configurations I wrote to make it easy to deploy all of my
               different websites from one machine. It provides reverse proxying
               to serve multiple domains off one server, and database
-              management/backup.
+              management/backup. It powers all of my publicly hosted websites,
+              including this one!
             </p>
-            <a href="https://github.com/LucasPickering/keskne">GitHub</a>
             <p class="caption">
               Docker, Nginx, PostgreSQL
             </p>
           </section>
 
           <section>
-            <h3>Turing Machine Compiler</h3>
+            <div class="project-header">
+              <h3>Turing Machine Compiler</h3>
+              <nav>
+                <a href="https://github.com/LucasPickering/Turing-Machine">
+                  GitHub
+                </a>
+              </nav>
+            </div>
             <p>
               Compiler to convert traditional Turing Machine definitions into
               functional
@@ -103,24 +123,25 @@
               Rocketlang is Turing complete (but only just).
             </p>
             <p>(Currently only partially functional)</p>
-            <a href="https://github.com/LucasPickering/Turing-Machine">
-              GitHub
-            </a>
             <p class="caption">
               Rust, compilers/programming languages
             </p>
           </section>
 
           <section>
-            <h3>MBTA Data Visualization</h3>
+            <div class="project-header">
+              <h3>MBTA Data Visualization</h3>
+              <nav>
+                <a href="https://mbta.lucaspickering.me">Site</a> |
+                <a href="https://github.com/LucasPickering/mbta">GitHub</a>
+              </nav>
+            </div>
             <p>
               Webapp to visualize daily ridership on the Massachusetts Bay
               Transportation Authority. Ridership is visualized on an
               interactive map, with controls to allow filtering data by time
               range and transit line.
             </p>
-            <a href="https://mbta.lucaspickering.me">Site</a> |
-            <a href="https://github.com/LucasPickering/mbta">GitHub</a>
             <p class="caption">
               TypeScript, Python, React, Django, data visualization, HTTP/REST,
               PostgreSQL

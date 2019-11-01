@@ -26,6 +26,16 @@ a:visited {
   grid-gap: 16px;
 }
 
+.projects > section + section {
+  border-top: 1px gray solid;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .caption {
   font-size: 14px;
   font-style: italic;
