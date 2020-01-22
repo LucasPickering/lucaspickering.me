@@ -1,11 +1,12 @@
 body {
   font-family: sans-serif;
-  background-color: #282828;
+  background: linear-gradient(-0.125turn, #9b1111, #0ea8c7);
   color: #f0f0f0;
+  height: 100vh;
 
   display: flex;
   justify-content: center;
-  margin: 16px;
+  margin: 0;
 }
 
 a {
@@ -17,17 +18,21 @@ a:visited {
 }
 
 #root {
+  --bg-color: rgba(0.5, 0.5, 0.5, 0.5);
   max-width: 800px;
+  padding: 0 16px;
+  background-color: var(--bg-color);
+  box-shadow: 0 0 20px 10px var(--bg-color);
 }
 
 .sections {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   grid-gap: 16px;
 }
 
 .projects > section + section {
-  border-top: 1px gray solid;
+  border-top: 1px white solid;
 }
 
 .project-header {
