@@ -31,8 +31,15 @@ header h1 {
 
 .sections {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: 1fr;
   grid-gap: 16px;
+}
+
+/* If screen big, go two column */
+@media (min-width: 832px) {
+  .sections {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .projects > section + section {
