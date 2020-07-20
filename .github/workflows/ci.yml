@@ -1,0 +1,22 @@
+name: Build and push images
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  COMPOSE_FILE: docker-compose.ci.yml
+
+jobs:
+  build-nginx-amplify:
+    name: "Build & push image"
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@master
+      - name: Build & push image
+        run: |
+          docker login -u _json_key -p '${{ secrets.GCR_SECRET_KEY }}' gcr.io
+          docker-compose build
+          docker-compose push
