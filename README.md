@@ -13,4 +13,4 @@ Simple static site. Hosted at [lucaspickering.me](https://lucaspickering.me).
 
 ## Deployment
 
-Deployed through [Keskne](https://github.com/LucasPickering/keskne). New changes on master are automatically built and pushed to the container registry.
+Deployed through GitHub Pages. Every push to master automatically gets re-deployed.
