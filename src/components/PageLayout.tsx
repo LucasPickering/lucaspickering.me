@@ -4,7 +4,7 @@ import React from "react";
 import Link from "./common/Link";
 import Navigation from "./navigation/Navigation";
 
-const useStyles = makeStyles(({ palette, spacing }) => ({
+const useStyles = makeStyles(({ spacing }) => ({
   pageContainer: {
     display: "flex",
     flexDirection: "column",
@@ -23,12 +23,7 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     display: "flex",
     justifyContent: "center",
     "& > *": {
-      padding: `0px ${spacing(1)}`,
-    },
-    "& > * + *": {
-      borderLeftWidth: 1,
-      borderLeftStyle: "solid",
-      borderLeftColor: palette.divider,
+      padding: `0px ${spacing(1)}px`,
     },
   },
 }));
@@ -47,6 +42,7 @@ const PageContainer: React.FC = ({ children }) => {
       <div className={classes.pageBody}>{children}</div>
 
       <footer className={classes.pageFooter}>
+        <Link to="mailto:lucas@lucaspickering.me">Email</Link>
         <Link to="https://github.com/LucasPickering/lucaspickering.me">
           GitHub
         </Link>
