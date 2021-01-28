@@ -14,6 +14,7 @@ function theme(): Theme {
           paper: "#202020",
         },
       },
+
       typography: {
         // Makes math for `rem` font sizes easy
         // https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
@@ -36,6 +37,20 @@ function theme(): Theme {
         },
         h6: {
           fontSize: "1.2rem",
+        },
+      },
+
+      props: {
+        MuiCard: {
+          component: "section",
+        },
+        MuiCardHeader: {
+          // CardHeader enforces that the component is always 'span' which is shit
+          // so we just supply our own Typography everywhere
+          disableTypography: false,
+        },
+        MuiGrid: {
+          spacing: 2,
         },
       },
     })

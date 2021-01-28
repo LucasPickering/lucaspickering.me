@@ -54,4 +54,16 @@ module.exports = {
     ],
     "@typescript-eslint/camelcase": "off",
   },
+  overrides: [
+    {
+      // Special config files
+      files: ["config-overrides.js"],
+      parserOptions: {
+        ecmaVersion: 3,
+      },
+      rules: {
+        "@typescript-eslint/no-var-requires": "off",
+      },
+    },
+  ],
 };

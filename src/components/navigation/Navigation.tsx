@@ -17,11 +17,16 @@ import DrawerLink from "./DrawerLink";
 import useScreenSize from "hooks/useScreenSize";
 import UnstyledLink from "components/common/UnstyledLink";
 
-const LINKS = [
+const LINKS: Array<{ to: string; label: string; exact: boolean }> = [
   {
     to: "/",
     label: "Home",
     exact: true,
+  },
+  {
+    to: "/projects",
+    label: "Projects",
+    exact: false,
   },
 ];
 
