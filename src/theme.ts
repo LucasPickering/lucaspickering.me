@@ -48,11 +48,6 @@ function theme(): Theme {
         MuiCard: {
           component: "section",
         },
-        MuiCardHeader: {
-          // CardHeader enforces that the component is always 'span' which is shit
-          // so we just supply our own Typography everywhere
-          disableTypography: false,
-        },
         MuiGrid: {
           spacing: 2,
         },

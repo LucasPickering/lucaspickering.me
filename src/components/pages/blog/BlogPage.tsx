@@ -4,31 +4,33 @@ import { Grid } from "@material-ui/core";
 
 import PostDetail from "components/PostDetail";
 import PostSummary from "components/PostSummary";
-import { Project } from "util/post";
-import terra from "./projects/terra";
-import soze from "./projects/soze";
+import { BlogPost } from "util/post";
 import NotFoundPage from "../notFound/NotFoundPage";
 
-const PROJECTS: Project[] = [terra, soze];
+const BLOG_POSTS: BlogPost[] = [];
 
-const ProjectsPage: React.FC = () => {
+const BlogPage: React.FC = () => {
   return (
     <Switch>
-      <Route path="/projects" exact>
+      <Route path="/blog" exact>
         <Grid container justify="center">
-          {PROJECTS.map((project) => (
-            <Grid key={project.slug} item xs={12} md={10} lg={8}>
-              <PostSummary post={project} />
+          Much like my mind, this page is currently devoid of content. Unlike my
+          mind though, that will change in the future.
+          {BLOG_POSTS.map((post) => (
+            <Grid key={post.slug} item xs={12} md={10} lg={8}>
+              <PostSummary post={post} />
             </Grid>
           ))}
         </Grid>
       </Route>
 
       <Route
-        path="/projects/:slug"
+        path="/blog/:slug"
         exact
         render={({ match }) => {
-          const post = PROJECTS.find(({ slug }) => match.params.slug === slug);
+          const post = BLOG_POSTS.find(
+            ({ slug }) => match.params.slug === slug
+          );
 
           if (post) {
             return <PostDetail post={post} />;
@@ -41,4 +43,4 @@ const ProjectsPage: React.FC = () => {
   );
 };
 
-export default ProjectsPage;
+export default BlogPage;

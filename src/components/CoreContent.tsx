@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import PageContainer from "./PageLayout";
+import BlogPage from "./pages/blog/BlogPage";
 import HomePage from "./pages/home/HomePage";
 import NotFoundPage from "./pages/notFound/NotFoundPage";
-import ProjectsPage, { PROJECTS } from "./pages/projects/ProjectsPage";
-import PostDetail from "./PostDetail";
+import ProjectsPage from "./pages/projects/ProjectsPage";
 
 /**
  * Router & page layout
@@ -16,24 +16,12 @@ const CoreContent: React.FC = () => {
         <Route path="/" exact>
           <HomePage />
         </Route>
-        <Route path="/projects" exact>
+        <Route path="/projects">
           <ProjectsPage />
         </Route>
-        <Route
-          path="/projects/:slug"
-          exact
-          render={({ match }) => {
-            const post = PROJECTS.find(
-              ({ slug: projectSlug }) => match.params.slug === projectSlug
-            );
-
-            if (post) {
-              return <PostDetail post={post} />;
-            }
-
-            return <NotFoundPage />;
-          }}
-        />
+        <Route path="/blog">
+          <BlogPage />
+        </Route>
 
         <Route path="*" exact>
           <NotFoundPage />
