@@ -17,7 +17,7 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     },
   },
   active: {
-    color: palette.primary.main,
+    backgroundColor: palette.primary.main,
   },
 }));
 
