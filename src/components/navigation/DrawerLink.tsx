@@ -3,7 +3,7 @@ import { makeStyles, ListItem, ListItemText } from "@material-ui/core";
 import clsx from "clsx";
 import NavLink from "components/common/NavLink";
 
-const useLocalStyles = makeStyles(({ palette, spacing }) => ({
+const useStyles = makeStyles(({ palette, spacing }) => ({
   listItem: {
     padding: 0,
   },
@@ -29,12 +29,12 @@ const DrawerLink: React.FC<React.ComponentProps<typeof NavLink>> = ({
   children,
   ...rest
 }) => {
-  const localClasses = useLocalStyles();
+  const classes = useStyles();
   return (
-    <ListItem className={localClasses.listItem} button>
+    <ListItem className={classes.listItem} button>
       <NavLink
-        className={clsx(localClasses.link, className)}
-        activeClassName={localClasses.active}
+        className={clsx(classes.link, className)}
+        activeClassName={classes.active}
         {...rest}
       >
         <ListItemText primary={children} />

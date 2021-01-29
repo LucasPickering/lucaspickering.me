@@ -1,17 +1,21 @@
 import { Theme, createMuiTheme, responsiveFontSizes } from "@material-ui/core";
-import { green, red } from "@material-ui/core/colors";
+import { red } from "@material-ui/core/colors";
 
 function theme(): Theme {
   return responsiveFontSizes(
     createMuiTheme({
       palette: {
         type: "dark",
-        primary: green,
+        primary: {
+          light: "#75E6DA",
+          main: "#189AB4",
+          dark: "#05445E",
+        },
         secondary: red,
         divider: "#ffffff",
         background: {
-          default: "#000000",
-          paper: "#202020",
+          default: "#011f24",
+          paper: "#05445E",
         },
       },
 

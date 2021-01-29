@@ -30,7 +30,10 @@ const LINKS: Array<{ to: string; label: string; exact: boolean }> = [
   },
 ];
 
-const useLocalStyles = makeStyles(({ spacing }) => ({
+const useStyles = makeStyles(({ palette, spacing }) => ({
+  appBar: {
+    backgroundColor: palette.primary.main,
+  },
   drawer: {
     width: 150,
   },
@@ -48,7 +51,7 @@ const useLocalStyles = makeStyles(({ spacing }) => ({
 const Navigation: React.FC<{
   backLink?: { to: string; label: string };
 }> = ({ backLink }) => {
-  const localClasses = useLocalStyles();
+  const classes = useStyles();
   const drawerNavEnabled = useScreenSize() === "small";
 
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -56,7 +59,7 @@ const Navigation: React.FC<{
   const closeDrawer = (): void => setDrawerOpen(false);
 
   return (
-    <AppBar position="static" color="default">
+    <AppBar className={classes.appBar} position="static" color="default">
       <Toolbar component="nav" variant="dense">
         {/* Drawer nav, only shown on small screens */}
         {drawerNavEnabled && (
@@ -66,7 +69,7 @@ const Navigation: React.FC<{
               onOpen={openDrawer}
               onClose={closeDrawer}
             >
-              <List className={localClasses.drawer} component="nav">
+              <List className={classes.drawer} component="nav">
                 {LINKS.map(({ to, label, exact }) => (
                   <DrawerLink
                     key={to}
@@ -80,7 +83,7 @@ const Navigation: React.FC<{
               </List>
             </SwipeableDrawer>
             <IconButton
-              className={localClasses.drawerButton}
+              className={classes.drawerButton}
               color="inherit"
               aria-label="open drawer"
               onClick={openDrawer}

@@ -3,27 +3,30 @@ import { makeStyles } from "@material-ui/core";
 import clsx from "clsx";
 import NavLink from "components/common/NavLink";
 
-const useLocalStyles = makeStyles(({ palette, transitions, typography }) => {
+const useStyles = makeStyles(({ palette, transitions, typography }) => {
   const activeStyles = {
     textDecoration: "none",
-    borderBottomColor: palette.primary.main,
+    backgroundColor: palette.primary.dark,
   };
   return {
-    linkContainer: {
-      minWidth: 80,
-      textAlign: "center",
-    },
     link: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+
+      minWidth: 80,
+      height: "100%",
+
       color: palette.text.primary,
       borderBottom: "1px solid #00000000",
-      transitionProperty: "border-bottom, color",
+      transitionProperty: "border-bottom, background-color, color",
       transitionDuration: `${transitions.duration.short}ms`,
       transitionTimingFunction: "linear",
       ...typography.body1,
 
       "&:hover, &:active": {
         ...activeStyles,
-        color: palette.text.hint,
+        color: palette.text.secondary,
       },
     },
     active: activeStyles,
@@ -35,17 +38,18 @@ const useLocalStyles = makeStyles(({ palette, transitions, typography }) => {
  */
 const HeaderLink: React.FC<React.ComponentProps<typeof NavLink>> = ({
   className,
+  children,
   ...rest
 }) => {
-  const localClasses = useLocalStyles();
+  const classes = useStyles();
   return (
-    <span className={localClasses.linkContainer}>
-      <NavLink
-        className={clsx(localClasses.link, className)}
-        activeClassName={localClasses.active}
-        {...rest}
-      />
-    </span>
+    <NavLink
+      className={clsx(classes.link, className)}
+      activeClassName={classes.active}
+      {...rest}
+    >
+      <span>{children}</span>
+    </NavLink>
   );
 };
 
