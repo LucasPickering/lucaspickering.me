@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Typography } from "@material-ui/core";
 
 import terra from "./pages/projects/projects/terra";
 import { Post } from "util/post";
@@ -21,7 +21,10 @@ const PostDetail: React.FC<{ post: Post }> = ({ post }) => {
   return (
     <article>
       <header>
-        <h1>{post.title}</h1>
+        <Typography variant="h1">{post.title}</Typography>
+        {post.subtitle && (
+          <Typography variant="subtitle1">{post.subtitle}</Typography>
+        )}
       </header>
       <img className={classes.image} src={post.banner} alt={post.title} />
       <post.Component />

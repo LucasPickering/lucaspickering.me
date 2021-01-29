@@ -6,7 +6,6 @@ import {
   CardHeader,
   CardMedia,
   makeStyles,
-  Typography,
 } from "@material-ui/core";
 import UnstyledLink from "components/common/UnstyledLink";
 
@@ -23,22 +22,26 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const PostSummary: React.FC<{ project: Post }> = ({ project }) => {
+const PostSummary: React.FC<{ post: Post }> = ({ post }) => {
   const classes = useStyles();
 
   return (
     <Card>
-      <CardActionArea component={UnstyledLink} to={`/projects/${project.slug}`}>
+      <CardActionArea
+        component={UnstyledLink}
+        to={`/${post.type}/${post.slug}`}
+      >
         <CardHeader
-          title={<Typography variant="h2">{project.title}</Typography>}
+          title={post.title}
+          titleTypographyProps={{ component: "h2", variant: "h2" }}
         />
         <CardMedia
           className={classes.banner}
           component="img"
-          image={project.banner}
-          title={project.title}
+          image={post.banner}
+          title={post.title}
         />
-        <CardContent>{project.summary}</CardContent>
+        <CardContent>{post.summary}</CardContent>
       </CardActionArea>
     </Card>
   );

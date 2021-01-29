@@ -28,6 +28,11 @@ const LINKS: Array<{ to: string; label: string; exact: boolean }> = [
     label: "Projects",
     exact: false,
   },
+  {
+    to: "/blog",
+    label: "Blog",
+    exact: false,
+  },
 ];
 
 const useStyles = makeStyles(({ palette, spacing }) => ({
