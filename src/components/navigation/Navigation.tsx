@@ -5,17 +5,12 @@ import {
   SwipeableDrawer,
   IconButton,
   List,
-  Button,
 } from "@material-ui/core";
-import {
-  Menu as IconMenu,
-  ArrowBack as IconArrowBack,
-} from "@material-ui/icons";
+import { Menu as IconMenu } from "@material-ui/icons";
 import React, { useState } from "react";
 import HeaderLink from "./HeaderLink";
 import DrawerLink from "./DrawerLink";
 import useScreenSize from "hooks/useScreenSize";
-import UnstyledLink from "components/common/UnstyledLink";
 
 const LINKS: Array<{ to: string; label: string; exact: boolean }> = [
   {
@@ -50,12 +45,8 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
 /**
  * Site-wide navigation controls. Will be a bar on large screens, and a drawer
  * on small ones.
- *
- * @param backLink If given, a button will be shown to go to a previous page
  */
-const Navigation: React.FC<{
-  backLink?: { to: string; label: string };
-}> = ({ backLink }) => {
+const Navigation: React.FC = () => {
   const classes = useStyles();
   const drawerNavEnabled = useScreenSize() === "small";
 
@@ -66,8 +57,8 @@ const Navigation: React.FC<{
   return (
     <AppBar className={classes.appBar} position="static" color="default">
       <Toolbar component="nav" variant="dense">
-        {/* Drawer nav, only shown on small screens */}
-        {drawerNavEnabled && (
+        {drawerNavEnabled ? (
+          // Drawer nav, only shown on small screens
           <>
             <SwipeableDrawer
               open={drawerOpen}
@@ -97,28 +88,14 @@ const Navigation: React.FC<{
               <IconMenu />
             </IconButton>
           </>
-        )}
-
-        {backLink && (
-          <Button
-            startIcon={<IconArrowBack />}
-            color="primary"
-            variant="outlined"
-            component={UnstyledLink}
-            // This prop gets forwarded to Link
-            to={backLink.to}
-          >
-            {backLink.label}
-          </Button>
-        )}
-
-        {/* Normal list of links, shown on medium-large screens */}
-        {!drawerNavEnabled &&
+        ) : (
+          // Normal list of links, shown on medium-large screens
           LINKS.map(({ to, label, exact }) => (
             <HeaderLink key={to} to={to} exact={exact}>
               {label}
             </HeaderLink>
-          ))}
+          ))
+        )}
       </Toolbar>
     </AppBar>
   );

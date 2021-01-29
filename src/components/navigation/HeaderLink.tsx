@@ -18,8 +18,7 @@ const useStyles = makeStyles(({ palette, transitions, typography }) => {
       height: "100%",
 
       color: palette.text.primary,
-      borderBottom: "1px solid #00000000",
-      transitionProperty: "border-bottom, background-color, color",
+      transitionProperty: "background-color, color",
       transitionDuration: `${transitions.duration.short}ms`,
       transitionTimingFunction: "linear",
       ...typography.body1,
