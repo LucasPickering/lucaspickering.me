@@ -9,7 +9,7 @@ import terra from "./projects/terra";
 import soze from "./projects/soze";
 import NotFoundPage from "../notFound/NotFoundPage";
 
-const PROJECTS: Project[] = [terra, soze];
+export const PROJECTS: Project[] = [terra, soze];
 
 const ProjectsPage: React.FC = () => {
   return (
