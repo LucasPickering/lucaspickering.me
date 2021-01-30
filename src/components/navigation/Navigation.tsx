@@ -58,13 +58,11 @@ const Navigation: React.FC = () => {
   const classes = useStyles();
   const drawerNavEnabled = useScreenSize() === "small";
 
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const openDrawer = (): void => setDrawerOpen(true);
-  const closeDrawer = (): void => setDrawerOpen(false);
-
   return (
     <AppBar className={classes.appBar} position="static" color="default">
       <Toolbar component="nav" variant="dense">
+        {drawerNavEnabled && <DrawerLinks />}
+
         <Typography
           className={classes.title}
           variant="h1"
@@ -74,47 +72,59 @@ const Navigation: React.FC = () => {
           A Thought
         </Typography>
 
-        {drawerNavEnabled ? (
-          // Drawer nav, only shown on small screens
-          <>
-            <SwipeableDrawer
-              open={drawerOpen}
-              onOpen={openDrawer}
-              onClose={closeDrawer}
-            >
-              <List className={classes.drawer} component="nav">
-                {LINKS.map(({ to, label, exact }) => (
-                  <DrawerLink
-                    key={to}
-                    to={to}
-                    exact={exact}
-                    onClick={closeDrawer}
-                  >
-                    {label}
-                  </DrawerLink>
-                ))}
-              </List>
-            </SwipeableDrawer>
-            <IconButton
-              className={classes.drawerButton}
-              color="inherit"
-              aria-label="open drawer"
-              onClick={openDrawer}
-              edge="start"
-            >
-              <IconMenu />
-            </IconButton>
-          </>
-        ) : (
-          // Normal list of links, shown on medium-large screens
-          LINKS.map(({ to, label, exact }) => (
-            <HeaderLink key={to} to={to} exact={exact}>
-              {label}
-            </HeaderLink>
-          ))
-        )}
+        {!drawerNavEnabled && <HeaderLinks />}
       </Toolbar>
     </AppBar>
+  );
+};
+
+/**
+ * Normal list of links, shown on medium-large screens
+ */
+const HeaderLinks: React.FC = () => (
+  <>
+    {LINKS.map(({ to, label, exact }) => (
+      <HeaderLink key={to} to={to} exact={exact}>
+        {label}
+      </HeaderLink>
+    ))}
+  </>
+);
+
+/**
+ * Drawer nav, only shown on small screens
+ */
+const DrawerLinks: React.FC = () => {
+  const classes = useStyles();
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const openDrawer = (): void => setDrawerOpen(true);
+  const closeDrawer = (): void => setDrawerOpen(false);
+
+  return (
+    <>
+      <SwipeableDrawer
+        open={drawerOpen}
+        onOpen={openDrawer}
+        onClose={closeDrawer}
+      >
+        <List className={classes.drawer} component="nav">
+          {LINKS.map(({ to, label, exact }) => (
+            <DrawerLink key={to} to={to} exact={exact} onClick={closeDrawer}>
+              {label}
+            </DrawerLink>
+          ))}
+        </List>
+      </SwipeableDrawer>
+      <IconButton
+        className={classes.drawerButton}
+        color="inherit"
+        aria-label="open drawer"
+        onClick={openDrawer}
+        edge="start"
+      >
+        <IconMenu />
+      </IconButton>
+    </>
   );
 };
 
