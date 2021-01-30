@@ -1,8 +1,8 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
 
-import Link from "./common/Link";
 import Navigation from "./navigation/Navigation";
+import PageFooter from "./PageFooter";
 
 const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   pageContainer: {
@@ -25,15 +25,6 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     padding: spacing(2),
     paddingBottom: 0, // Handled by the footer
   },
-  pageFooter: {
-    marginTop: "auto",
-    padding: spacing(2),
-    display: "flex",
-    justifyContent: "center",
-    "& > *": {
-      padding: `0px ${spacing(1)}px`,
-    },
-  },
 }));
 
 /**
@@ -49,12 +40,7 @@ const PageContainer: React.FC = ({ children }) => {
 
       <div className={classes.pageBody}>{children}</div>
 
-      <footer className={classes.pageFooter}>
-        <Link to="mailto:lucas@lucaspickering.me">Email</Link>
-        <Link to="https://github.com/LucasPickering/lucaspickering.me">
-          GitHub
-        </Link>
-      </footer>
+      <PageFooter />
     </div>
   );
 };

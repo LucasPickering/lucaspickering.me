@@ -2,7 +2,9 @@ import React from "react";
 import { Link as RouterLink } from "react-router-dom";
 import { History, Location, LocationDescriptorObject } from "history";
 
-type Props = React.ComponentProps<typeof RouterLink>;
+interface Props extends React.ComponentProps<typeof RouterLink> {
+  openInNew?: boolean;
+}
 
 // This hash code is adapter from https://github.com/rafrex/react-router-hash-link
 
@@ -41,19 +43,19 @@ function getHashFragment(
  */
 const UnstyledLink = React.forwardRef(
   (
-    { to, onClick, children, ...rest }: Props,
+    { to, onClick, children, openInNew, ...rest }: Props,
     ref: React.Ref<HTMLAnchorElement>
   ): React.ReactElement => {
     const destString = to.toString();
     const external = Boolean(destString.match(/^\w+:/));
-    const apiLink = Boolean(destString.match(/^\/api\//));
+    const openInNewTab = openInNew ?? external;
 
-    if (external || apiLink) {
+    if (external) {
       return (
         <a
           ref={ref}
           href={destString}
-          {...(external
+          {...(openInNewTab
             ? {
                 target: "_blank",
                 rel: "noopener noreferrer",

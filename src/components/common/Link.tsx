@@ -2,7 +2,10 @@ import React from "react";
 import { Link as MuiLink } from "@material-ui/core";
 import UnstyledLink from "./UnstyledLink";
 
-type Props = Pick<React.ComponentProps<typeof UnstyledLink>, "to"> &
+type Props = Pick<
+  React.ComponentProps<typeof UnstyledLink>,
+  "to" | "openInNew"
+> &
   Omit<React.ComponentProps<typeof MuiLink>, "component">;
 
 /**
