@@ -10,6 +10,7 @@ const soze: Project = {
   type: "project",
   slug: "soze",
   title: "Söze",
+  links: [{ label: "Code", link: "https://github.com/LucasPickering/soze" }],
   summary: (
     <>
       Hardware mods for my PC, with a suite of software services to make it all
