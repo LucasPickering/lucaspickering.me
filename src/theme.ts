@@ -48,6 +48,12 @@ function theme(): Theme {
         h6: {
           fontSize: "1.2rem",
         },
+        body1: {
+          component: "p",
+        },
+        button: {
+          textTransform: "none",
+        },
       },
 
       props: {
@@ -59,11 +65,6 @@ function theme(): Theme {
         },
       },
       overrides: {
-        MuiButton: {
-          root: {
-            textTransform: "none",
-          },
-        },
         MuiIconButton: {
           root: {
             borderRadius: 2,

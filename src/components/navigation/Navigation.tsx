@@ -26,11 +26,12 @@ const LINKS: Array<{ to: string; label: string; exact: boolean }> = [
     label: POST_TYPES.project.label,
     exact: false,
   },
-  {
-    to: POST_TYPES.blog.route,
-    label: POST_TYPES.blog.label,
-    exact: false,
-  },
+  // Super secret for now
+  // {
+  //   to: POST_TYPES.blog.route,
+  //   label: POST_TYPES.blog.label,
+  //   exact: false,
+  // },
 ];
 
 const useStyles = makeStyles(({ palette, spacing }) => ({
