@@ -9,7 +9,7 @@ function theme(): Theme {
         type: "dark",
         primary: {
           light: "#75E6DA",
-          main: "#189AB4",
+          main: "#1cb7d6",
           dark: "#05445E",
         },
         secondary: red,
