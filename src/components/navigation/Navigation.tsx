@@ -39,7 +39,7 @@ const useStyles = makeStyles(({ palette, spacing }) => ({
     backgroundColor: palette.primary.main,
   },
   title: {
-    marginRight: spacing(4),
+    margin: `0 ${spacing(4)}px 0 0`,
     color: palette.text.primary,
   },
   drawer: {

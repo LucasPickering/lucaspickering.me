@@ -12,7 +12,6 @@ const useStyles = makeStyles(({ spacing }) => ({
   title: {
     display: "flex",
     alignItems: "center",
-    marginBottom: spacing(1),
     "& > :not(:first-child)": {
       marginLeft: spacing(1),
     },

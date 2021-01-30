@@ -32,6 +32,7 @@ const PostSummary: React.FC<{ post: Post }> = ({ post }) => {
         <CardHeader
           title={post.title}
           titleTypographyProps={{ component: "h2", variant: "h2" }}
+          subheader={post.tags.join(", ")}
         />
         <CardMedia
           className={classes.banner}

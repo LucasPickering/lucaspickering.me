@@ -6,31 +6,6 @@ interface Props extends React.ComponentProps<typeof RouterLink> {
   openInNew?: boolean;
 }
 
-// This hash code is adapter from https://github.com/rafrex/react-router-hash-link
-
-/**
- * Gets the hash portion of a link target.
- * @param to The link target
- * @return The hash target, or empty string if there is none
- */
-function getHashFragment(
-  to:
-    | string
-    | LocationDescriptorObject<unknown>
-    | ((location: Location<unknown>) => History.LocationDescriptor<unknown>)
-): string {
-  let s: string;
-  if (typeof to === "string") {
-    s = to;
-  } else if (typeof to === "object" && typeof to.hash === "string") {
-    s = to.hash;
-  } else {
-    s = "";
-  }
-  // Get everything after the first #
-  return s.substring(s.indexOf("#") + 1);
-}
-
 /**
  * An unstyled link, which is used as part of our local Link component, or
  * can be passed to a `component=` prop on other Material UI components. This
@@ -84,7 +59,7 @@ const UnstyledLink = React.forwardRef(
             window.setTimeout(() => {
               const element = document.getElementById(hashFragment);
               if (element) {
-                element.scrollIntoView();
+                scrollToElement(element);
               }
             });
           }
@@ -98,5 +73,64 @@ const UnstyledLink = React.forwardRef(
     );
   }
 );
+
+// This hash code is adapter from https://github.com/rafrex/react-router-hash-link
+
+/**
+ * Gets the hash portion of a link target.
+ * @param to The link target
+ * @return The hash target, or empty string if there is none
+ */
+function getHashFragment(
+  to:
+    | string
+    | LocationDescriptorObject<unknown>
+    | ((location: Location<unknown>) => History.LocationDescriptor<unknown>)
+): string {
+  let s: string;
+  if (typeof to === "string") {
+    s = to;
+  } else if (typeof to === "object" && typeof to.hash === "string") {
+    s = to.hash;
+  } else {
+    s = "";
+  }
+  // Get everything after the first #
+  return s.substring(s.indexOf("#") + 1);
+}
+
+function isInteractiveElement(element: HTMLElement): boolean {
+  const formTags = ["BUTTON", "INPUT", "SELECT", "TEXTAREA"];
+  const linkTags = ["A", "AREA"];
+  return (
+    (formTags.includes(element.tagName) && !element.hasAttribute("disabled")) ||
+    (linkTags.includes(element.tagName) && element.hasAttribute("href"))
+  );
+}
+
+/**
+ * Scroll to the requested element and focus it. Ripped from
+ * https://github.com/rafgraph/react-router-hash-link/blob/main/src/index.js
+ * @param element Element to scroll to
+ */
+function scrollToElement(element: HTMLElement): void {
+  element.scrollIntoView();
+
+  // update focus to where the page is scrolled to
+  // unfortunately this doesn't work in safari (desktop and iOS) when blur() is called
+  const originalTabIndex = element.getAttribute("tabindex");
+  if (originalTabIndex === null && !isInteractiveElement(element)) {
+    element.setAttribute("tabindex", "-1");
+  }
+  element.focus({ preventScroll: true });
+  if (originalTabIndex === null && !isInteractiveElement(element)) {
+    // for some reason calling blur() in safari resets the focus region to where
+    // it was previously, if blur() is not called it works in safari, but then
+    // are stuck with default focus styles on an element that otherwise might
+    // never had focus styles applied, so not an option
+    element.blur();
+    element.removeAttribute("tabindex");
+  }
+}
 
 export default UnstyledLink;

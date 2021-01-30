@@ -12,6 +12,9 @@ const useStyles = makeStyles(({ spacing }) => ({
     "& > *": {
       padding: `0px ${spacing(1)}px`,
     },
+    "&:focus": {
+      border: `1px solid red`,
+    },
   },
 }));
 
@@ -22,7 +25,7 @@ const PageFooter: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <footer className={classes.pageFooter}>
+    <footer className={classes.pageFooter} id="page-footer">
       <Link to="mailto:lucas@lucaspickering.me">Email</Link>
       <Link to="https://github.com/LucasPickering/lucaspickering.me">
         GitHub

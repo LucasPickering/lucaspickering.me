@@ -32,12 +32,15 @@ function theme(): Theme {
 
         h1: {
           fontSize: "3.2rem",
+          margin: "1rem 0",
         },
         h2: {
           fontSize: "2.8rem",
+          margin: "1rem 0",
         },
         h3: {
           fontSize: "2.4rem",
+          margin: "0.875rem 0",
         },
         h4: {
           fontSize: "2.0rem",
@@ -50,6 +53,7 @@ function theme(): Theme {
         },
         body1: {
           component: "p",
+          margin: "1rem 0",
         },
         button: {
           textTransform: "none",
@@ -65,6 +69,13 @@ function theme(): Theme {
         },
       },
       overrides: {
+        MuiCardHeader: {
+          content: {
+            "& > *": {
+              margin: 0,
+            },
+          },
+        },
         MuiIconButton: {
           root: {
             borderRadius: 2,
