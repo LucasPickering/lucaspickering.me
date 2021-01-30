@@ -1,8 +1,22 @@
+export const POST_TYPES = {
+  blog: {
+    route: "blog",
+    label: "Blog",
+  },
+  project: {
+    route: "/projects",
+    label: "Projects",
+  },
+};
+
 export interface Post {
-  type: string;
+  type: keyof typeof POST_TYPES;
   slug: string;
   title: string;
-  subtitle?: React.ReactNode;
+  links?: Array<{
+    label: string;
+    link: string;
+  }>;
   tags: string[];
   summary: React.ReactNode;
   banner: string;
@@ -15,5 +29,5 @@ export interface BlogPost extends Post {
 }
 
 export interface Project extends Post {
-  type: "projects";
+  type: "project";
 }

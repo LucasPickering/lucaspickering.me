@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { POST_TYPES } from "util/post";
 import PageContainer from "./PageLayout";
 import BlogPage from "./pages/blog/BlogPage";
 import HomePage from "./pages/home/HomePage";
@@ -16,11 +17,11 @@ const CoreContent: React.FC = () => {
         <Route path="/" exact>
           <HomePage />
         </Route>
-        <Route path="/projects">
-          <ProjectsPage />
-        </Route>
-        <Route path="/blog">
+        <Route path={POST_TYPES.blog.route}>
           <BlogPage />
+        </Route>
+        <Route path={POST_TYPES.project.route}>
+          <ProjectsPage />
         </Route>
 
         <Route path="*" exact>

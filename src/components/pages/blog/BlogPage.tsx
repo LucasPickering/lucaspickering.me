@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 
 import PostDetail from "components/PostDetail";
 import PostSummary from "components/PostSummary";
-import { BlogPost } from "util/post";
+import { BlogPost, POST_TYPES } from "util/post";
 import NotFoundPage from "../notFound/NotFoundPage";
 
 const BLOG_POSTS: BlogPost[] = [];
@@ -12,7 +12,7 @@ const BLOG_POSTS: BlogPost[] = [];
 const BlogPage: React.FC = () => {
   return (
     <Switch>
-      <Route path="/blog" exact>
+      <Route path={POST_TYPES.blog.route} exact>
         <Grid container justify="center">
           Much like my mind, this page is currently devoid of content. Unlike my
           mind though, that will change in the future.
@@ -25,7 +25,7 @@ const BlogPage: React.FC = () => {
       </Route>
 
       <Route
-        path="/blog/:slug"
+        path={`${POST_TYPES.blog.route}/:slug`}
         exact
         render={({ match }) => {
           const post = BLOG_POSTS.find(

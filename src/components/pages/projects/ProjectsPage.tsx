@@ -4,7 +4,7 @@ import { Grid } from "@material-ui/core";
 
 import PostDetail from "components/PostDetail";
 import PostSummary from "components/PostSummary";
-import { Project } from "util/post";
+import { POST_TYPES, Project } from "util/post";
 import terra from "./projects/terra";
 import soze from "./projects/soze";
 import NotFoundPage from "../notFound/NotFoundPage";
@@ -14,10 +14,10 @@ const PROJECTS: Project[] = [terra, soze];
 const ProjectsPage: React.FC = () => {
   return (
     <Switch>
-      <Route path="/projects" exact>
+      <Route path={POST_TYPES.project.route} exact>
         <Grid container justify="center">
           {PROJECTS.map((project) => (
-            <Grid key={project.slug} item xs={12} md={10} lg={8}>
+            <Grid key={project.slug} item xs={12} lg={6}>
               <PostSummary post={project} />
             </Grid>
           ))}
@@ -25,7 +25,7 @@ const ProjectsPage: React.FC = () => {
       </Route>
 
       <Route
-        path="/projects/:slug"
+        path={`${POST_TYPES.project.route}/:slug`}
         exact
         render={({ match }) => {
           const post = PROJECTS.find(({ slug }) => match.params.slug === slug);

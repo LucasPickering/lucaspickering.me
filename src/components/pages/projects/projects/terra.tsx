@@ -29,6 +29,9 @@ const useStyles = makeStyles(({ spacing }) => ({
     position: "absolute",
     top: spacing(1),
     right: spacing(1),
+    "& > *": {
+      marginLeft: spacing(1),
+    },
   },
 
   demoPreLoad: {
@@ -83,14 +86,16 @@ const Terra: React.FC = () => {
               <div className={classes.demoButtons}>
                 <IconButton
                   component={UnstyledLink}
-                  aria-label="Open Full Demo"
                   to="https://terra.lucaspickering.me/"
+                  aria-label="Open Full Demo"
+                  size="small"
                 >
                   <IconOpenInNew />
                 </IconButton>
 
                 <IconButton
                   aria-label="Close Demo"
+                  size="small"
                   onClick={() => setShowDemo(false)}
                 >
                   <IconClose />
@@ -102,6 +107,7 @@ const Terra: React.FC = () => {
               <div className={classes.demoPreLoadBackground} />
               <Button
                 className={classes.demoPreLoadButton}
+                size="large"
                 onClick={() => setShowDemo(true)}
               >
                 Load Demo
@@ -118,12 +124,19 @@ const Terra: React.FC = () => {
 };
 
 const terra: Project = {
-  type: "projects",
+  type: "project",
   slug: "terra",
   title: "Terra",
-  subtitle: (
-    <Link to="https://terra.lucaspickering.me/">terra.lucaspickering.me</Link>
-  ),
+  links: [
+    {
+      label: "Demo",
+      link: "https://terra.lucaspickering.me/",
+    },
+    {
+      label: "Code",
+      link: "https://github.com/LucasPickering/terra-rs",
+    },
+  ],
   summary: (
     <>
       A hexagon-tile terrain generation system. Dynamically generate and explore
