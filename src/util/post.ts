@@ -1,6 +1,6 @@
 export const POST_TYPES = {
   blog: {
-    route: "blog",
+    route: "/blog",
     label: "Blog",
   },
   project: {

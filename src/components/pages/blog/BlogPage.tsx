@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 import PostDetail from "components/PostDetail";
 import PostSummary from "components/PostSummary";
@@ -14,8 +14,18 @@ const BlogPage: React.FC = () => {
     <Switch>
       <Route path={POST_TYPES.blog.route} exact>
         <Grid container justify="center">
-          Much like my mind, this page is currently devoid of content. Unlike my
-          mind though, that will change in the future.
+          <Grid item>
+            <Typography>
+              Sometimes I have a thought. Sometimes I write that thought down.
+              Sometimes it&apos;s coherent. Sometimes, a passerby has the
+              misfortune of reading that thought. Today that&apos;s you.
+              I&apos;m sorry.
+            </Typography>
+            <Typography>
+              Much like my mind, this page is currently devoid of content.
+              Unlike my mind though, that will change in the future.
+            </Typography>
+          </Grid>
           {BLOG_POSTS.map((post) => (
             <Grid key={post.slug} item xs={12} md={10} lg={8}>
               <PostSummary post={post} />
