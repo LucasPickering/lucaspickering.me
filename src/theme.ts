@@ -1,5 +1,6 @@
 import { Theme, createMuiTheme, responsiveFontSizes } from "@material-ui/core";
 import { red } from "@material-ui/core/colors";
+import "@ibm/plex";
 
 function theme(): Theme {
   return responsiveFontSizes(
@@ -27,6 +28,7 @@ function theme(): Theme {
         // Makes math for `rem` font sizes easy
         // https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
         htmlFontSize: 10,
+        fontFamily: '"IBM Plex Sans", Helvetica, Arial, sans-serif',
 
         h1: {
           fontSize: "3.2rem",
