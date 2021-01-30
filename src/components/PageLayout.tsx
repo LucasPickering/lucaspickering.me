@@ -4,7 +4,7 @@ import React from "react";
 import Link from "./common/Link";
 import Navigation from "./navigation/Navigation";
 
-const useStyles = makeStyles(({ spacing }) => ({
+const useStyles = makeStyles(({ breakpoints, spacing }) => ({
   pageContainer: {
     display: "flex",
     flexDirection: "column",
@@ -13,9 +13,17 @@ const useStyles = makeStyles(({ spacing }) => ({
   },
   pageBody: {
     width: "100%",
-    maxWidth: 1280,
+    [breakpoints.up("xs")]: {
+      maxWidth: "100%", // 12/12
+    },
+    [breakpoints.up("md")]: {
+      maxWidth: "83%", // 10/12
+    },
+    [breakpoints.up("lg")]: {
+      maxWidth: "67%", // 8/12
+    },
     padding: spacing(2),
-    paddingBottom: 0,
+    paddingBottom: 0, // Handled by the footer
   },
   pageFooter: {
     marginTop: "auto",

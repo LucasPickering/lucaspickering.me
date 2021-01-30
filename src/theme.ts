@@ -19,6 +19,10 @@ function theme(): Theme {
         },
       },
 
+      shape: {
+        borderRadius: 2,
+      },
+
       typography: {
         // Makes math for `rem` font sizes easy
         // https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
@@ -50,6 +54,18 @@ function theme(): Theme {
         },
         MuiGrid: {
           spacing: 2,
+        },
+      },
+      overrides: {
+        MuiButton: {
+          root: {
+            textTransform: "none",
+          },
+        },
+        MuiIconButton: {
+          root: {
+            borderRadius: 2,
+          },
         },
       },
     })

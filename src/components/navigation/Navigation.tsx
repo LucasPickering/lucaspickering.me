@@ -5,12 +5,15 @@ import {
   SwipeableDrawer,
   IconButton,
   List,
+  Typography,
 } from "@material-ui/core";
 import { Menu as IconMenu } from "@material-ui/icons";
 import React, { useState } from "react";
 import HeaderLink from "./HeaderLink";
 import DrawerLink from "./DrawerLink";
 import useScreenSize from "hooks/useScreenSize";
+import UnstyledLink from "components/common/UnstyledLink";
+import { POST_TYPES } from "util/post";
 
 const LINKS: Array<{ to: string; label: string; exact: boolean }> = [
   {
@@ -19,13 +22,13 @@ const LINKS: Array<{ to: string; label: string; exact: boolean }> = [
     exact: true,
   },
   {
-    to: "/projects",
-    label: "Projects",
+    to: POST_TYPES.project.route,
+    label: POST_TYPES.project.label,
     exact: false,
   },
   {
-    to: "/blog",
-    label: "Blog",
+    to: POST_TYPES.blog.route,
+    label: POST_TYPES.blog.label,
     exact: false,
   },
 ];
@@ -33,6 +36,10 @@ const LINKS: Array<{ to: string; label: string; exact: boolean }> = [
 const useStyles = makeStyles(({ palette, spacing }) => ({
   appBar: {
     backgroundColor: palette.primary.main,
+  },
+  title: {
+    marginRight: spacing(4),
+    color: palette.text.primary,
   },
   drawer: {
     width: 150,
@@ -57,6 +64,15 @@ const Navigation: React.FC = () => {
   return (
     <AppBar className={classes.appBar} position="static" color="default">
       <Toolbar component="nav" variant="dense">
+        <Typography
+          className={classes.title}
+          variant="h1"
+          component={UnstyledLink}
+          to="/"
+        >
+          A Thought
+        </Typography>
+
         {drawerNavEnabled ? (
           // Drawer nav, only shown on small screens
           <>

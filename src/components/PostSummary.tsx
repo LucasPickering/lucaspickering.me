@@ -10,7 +10,7 @@ import {
 import UnstyledLink from "components/common/UnstyledLink";
 
 import terra from "./pages/projects/projects/terra";
-import { Post } from "util/post";
+import { Post, POST_TYPES } from "util/post";
 
 export const PROJECTS = [terra];
 
@@ -24,13 +24,11 @@ const useStyles = makeStyles(() => ({
 
 const PostSummary: React.FC<{ post: Post }> = ({ post }) => {
   const classes = useStyles();
+  const { route: typeRoute } = POST_TYPES[post.type];
 
   return (
     <Card>
-      <CardActionArea
-        component={UnstyledLink}
-        to={`/${post.type}/${post.slug}`}
-      >
+      <CardActionArea component={UnstyledLink} to={`${typeRoute}/${post.slug}`}>
         <CardHeader
           title={post.title}
           titleTypographyProps={{ component: "h2", variant: "h2" }}

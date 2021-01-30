@@ -7,7 +7,7 @@ const Soze: React.FC = () => {
 };
 
 const soze: Project = {
-  type: "projects",
+  type: "project",
   slug: "soze",
   title: "Söze",
   summary: (
