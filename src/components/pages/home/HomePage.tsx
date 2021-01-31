@@ -12,20 +12,16 @@ const HomePage: React.FC = () => {
       <div>
         <Typography variant="h2">Howdy!</Typography>
         <Typography>
-          <p>
-            My name's Lucas Pickering and I'm on the World Wide Web! This is my
-            little slice of it. This is where I share my projects and ideas.
-          </p>
+          My name's Lucas Pickering and I'm on the World Wide Web! This is my
+          little slice of it. This is where I share my projects and ideas.
         </Typography>
       </div>
       <div>
         <Typography variant="h2">About Me</Typography>
         <Typography>
-          <p>
-            I like computers! And sports. I write code for a living and also for
-            fun. If you like links, then{" "}
-            <Link to="#page-footer">check the footer</Link>.
-          </p>
+          I like computers! And sports. I write code for a living and also for
+          fun. If you like links, then{" "}
+          <Link to="#page-footer">check the footer</Link>.
         </Typography>
       </div>
       <div>
