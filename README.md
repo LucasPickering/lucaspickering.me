@@ -1,14 +1,18 @@
 # lucaspickering.me
 
-Simple static site. Hosted at [lucaspickering.me](https://lucaspickering.me).
+Static site written in TypeScript+React. Hosted at [lucaspickering.me](https://lucaspickering.me).
+
+## Why React?
+
+An obvious question is, if this site is just static content, why use React? The answer is that I want the option to make cool interactive posts. Most of the posts are just rendered Markdown, but some of them will include interactive elements that are much easier to write in TypeScript+React than in HTML+JS.
 
 ## Development
 
 ### Running Locally
 
 - Clone the repo
-- Host the page with something like [http.server](https://docs.python.org/3/library/http.server.html) (built in to Python 3)
-  - `python3 -m http.server --directory public/`
+- `npm install`
+- `npm run start`
 - Edit stuff
 
 ## Deployment

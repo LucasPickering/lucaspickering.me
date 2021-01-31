@@ -9,8 +9,7 @@ import {
   Close as IconClose,
   OpenInNew as IconOpenInNew,
 } from "@material-ui/icons";
-import Link from "components/common/Link";
-import Markdown from "components/common/Markdown";
+import Markdown from "components/common/markdown/Markdown";
 import UnstyledLink from "components/common/UnstyledLink";
 import React, { useState } from "react";
 
@@ -64,65 +63,52 @@ const Terra: React.FC = () => {
     <>
       <Markdown>{terraMd}</Markdown>
 
-      <div>
-        <Typography id="demo" variant="h2">
-          Demo
-        </Typography>
-
-        <Typography>
-          Full demo available at{" "}
-          <Link to="https://terra.lucaspickering.me/">
-            terra.lucaspickering.me
-          </Link>
-          .
-        </Typography>
-
-        <Box className={classes.demo} border={1}>
-          {showDemo ? (
-            <>
-              <iframe
-                className={classes.demoIframe}
-                title="Terra"
-                width="100%"
-                height="100%"
-                src="https://terra.lucaspickering.me/"
-              />
-              <div className={classes.demoButtons}>
-                <IconButton
-                  component={UnstyledLink}
-                  to="https://terra.lucaspickering.me/"
-                  aria-label="Open Full Demo"
-                  size="small"
-                >
-                  <IconOpenInNew />
-                </IconButton>
-
-                <IconButton
-                  aria-label="Close Demo"
-                  size="small"
-                  onClick={() => setShowDemo(false)}
-                >
-                  <IconClose />
-                </IconButton>
-              </div>
-            </>
-          ) : (
-            <div className={classes.demoPreLoad}>
-              <div className={classes.demoPreLoadBackground} />
-              <Button
-                className={classes.demoPreLoadButton}
-                size="large"
-                onClick={() => setShowDemo(true)}
+      {/* Interactive demo */}
+      <Box className={classes.demo} border={1}>
+        {showDemo ? (
+          <>
+            <iframe
+              className={classes.demoIframe}
+              title="Terra"
+              width="100%"
+              height="100%"
+              src="https://terra.lucaspickering.me/"
+            />
+            <div className={classes.demoButtons}>
+              <IconButton
+                component={UnstyledLink}
+                to="https://terra.lucaspickering.me/"
+                aria-label="Open Full Demo"
+                size="small"
               >
-                Load Demo
-              </Button>
+                <IconOpenInNew />
+              </IconButton>
+
+              <IconButton
+                aria-label="Close Demo"
+                size="small"
+                onClick={() => setShowDemo(false)}
+              >
+                <IconClose />
+              </IconButton>
             </div>
-          )}
-        </Box>
-        <Typography variant="caption">
-          Warning: This demo is intensive! It may be slow on a laptop or phone.
-        </Typography>
-      </div>
+          </>
+        ) : (
+          <div className={classes.demoPreLoad}>
+            <div className={classes.demoPreLoadBackground} />
+            <Button
+              className={classes.demoPreLoadButton}
+              size="large"
+              onClick={() => setShowDemo(true)}
+            >
+              Load Demo
+            </Button>
+          </div>
+        )}
+      </Box>
+      <Typography variant="caption">
+        Warning: This demo is intensive! It may be slow on a laptop or phone.
+      </Typography>
     </>
   );
 };
