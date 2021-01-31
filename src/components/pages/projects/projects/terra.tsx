@@ -10,10 +10,12 @@ import {
   OpenInNew as IconOpenInNew,
 } from "@material-ui/icons";
 import Link from "components/common/Link";
+import Markdown from "components/common/Markdown";
 import UnstyledLink from "components/common/UnstyledLink";
 import React, { useState } from "react";
 
 import { Project } from "util/post";
+import terraMd from "./terra.md";
 
 const useStyles = makeStyles(({ spacing }) => ({
   demo: {
@@ -60,31 +62,7 @@ const Terra: React.FC = () => {
 
   return (
     <>
-      <Typography>
-        <p>
-          Terra is a 3D hexagon-based terrain generation library. It provides a
-          highly configurable series of algorithms that can generate lifelike
-          terrain. The core library itself doesn't actually render the terrain,
-          it just returns it in a format that makes rendering simple. It also
-          includes a simple demo that renders the terrain in 3D, to see what
-          it's capable of (<Link to="#demo">skip to the demo now</Link>).
-        </p>
-        <p></p>
-      </Typography>
-
-      <Typography variant="h2">How does it work?</Typography>
-
-      <Typography variant="h2">What projects can use it?</Typography>
-      <Typography>
-        <p>There are a few ways to iteract with </p>
-      </Typography>
-
-      <Typography variant="h2">Can I use it now?</Typography>
-      <Typography>
-        <p>
-          Yes! The project isn't currently published on Cargo, but you can grab
-        </p>
-      </Typography>
+      <Markdown>{terraMd}</Markdown>
 
       <div>
         <Typography id="demo" variant="h2">

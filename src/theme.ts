@@ -51,6 +51,9 @@ function theme(): Theme {
         h6: {
           fontSize: "1.2rem",
         },
+        body1: {
+          margin: "1rem 0",
+        },
         button: {
           textTransform: "none",
         },
