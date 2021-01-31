@@ -40,6 +40,25 @@ module.exports = {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "error",
     "react/display-name": "off",
+    "react/no-unescaped-entities": [
+      "error",
+      {
+        forbid: [
+          {
+            char: "<",
+            alternatives: ["&lt;"],
+          },
+          {
+            char: ">",
+            alternatives: ["&gt;"],
+          },
+          {
+            char: "}",
+            alternatives: ["&#125;"],
+          },
+        ],
+      },
+    ],
     "jsx-a11y/no-autofocus": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": ["error", { fixToUnknown: true }],

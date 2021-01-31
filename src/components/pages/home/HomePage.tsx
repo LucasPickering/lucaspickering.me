@@ -12,22 +12,25 @@ const HomePage: React.FC = () => {
       <div>
         <Typography variant="h2">Howdy!</Typography>
         <Typography>
-          My name&apos;s Lucas Pickering and I&apos;m on the World Wide Web!
-          This is my little slice of it. This is where I share my projects and
-          ideas.
+          <p>
+            My name's Lucas Pickering and I'm on the World Wide Web! This is my
+            little slice of it. This is where I share my projects and ideas.
+          </p>
         </Typography>
       </div>
       <div>
         <Typography variant="h2">About Me</Typography>
         <Typography>
-          I like computers! And sports. I write code for a living and also for
-          fun. If you like links, then{" "}
-          <Link to="#page-footer">check the footer</Link>.
+          <p>
+            I like computers! And sports. I write code for a living and also for
+            fun. If you like links, then{" "}
+            <Link to="#page-footer">check the footer</Link>.
+          </p>
         </Typography>
       </div>
       <div>
         <Typography variant="h2">Wanna see some stuff?</Typography>
-        <Typography variant="h3">Here&apos;s some projects</Typography>
+        <Typography variant="h3">Here's some projects</Typography>
         <Grid container>
           {PROJECTS.slice(0, 3).map((project) => (
             <Grid key={project.slug} item xs={12} sm={6} lg={4}>

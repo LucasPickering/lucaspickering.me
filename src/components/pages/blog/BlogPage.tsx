@@ -16,14 +16,15 @@ const BlogPage: React.FC = () => {
         <Grid container justify="center">
           <Grid item>
             <Typography>
-              Sometimes I have a thought. Sometimes I write that thought down.
-              Sometimes it&apos;s coherent. Sometimes, a passerby has the
-              misfortune of reading that thought. Today that&apos;s you.
-              I&apos;m sorry.
-            </Typography>
-            <Typography>
-              Much like my mind, this page is currently devoid of content.
-              Unlike my mind though, that will change in the future.
+              <p>
+                Sometimes I have a thought. Sometimes I write that thought down.
+                Sometimes it's coherent. Sometimes, a passerby has the
+                misfortune of reading that thought. Today that's you. I'm sorry.
+              </p>
+              <p>
+                Much like my mind, this page is currently devoid of content.
+                Unlike my mind though, that will change in the future.
+              </p>
             </Typography>
           </Grid>
           {BLOG_POSTS.map((post) => (

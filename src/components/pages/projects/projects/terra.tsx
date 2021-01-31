@@ -59,11 +59,37 @@ const Terra: React.FC = () => {
   const [showDemo, setShowDemo] = useState<boolean>(false);
 
   return (
-    <div>
-      <p>Terra is a 3D hexagon-based terrain generation library.</p>
+    <>
+      <Typography>
+        <p>
+          Terra is a 3D hexagon-based terrain generation library. It provides a
+          highly configurable series of algorithms that can generate lifelike
+          terrain. The core library itself doesn't actually render the terrain,
+          it just returns it in a format that makes rendering simple. It also
+          includes a simple demo that renders the terrain in 3D, to see what
+          it's capable of (<Link to="#demo">skip to the demo now</Link>).
+        </p>
+        <p></p>
+      </Typography>
+
+      <Typography variant="h2">How does it work?</Typography>
+
+      <Typography variant="h2">What projects can use it?</Typography>
+      <Typography>
+        <p>There are a few ways to iteract with </p>
+      </Typography>
+
+      <Typography variant="h2">Can I use it now?</Typography>
+      <Typography>
+        <p>
+          Yes! The project isn't currently published on Cargo, but you can grab
+        </p>
+      </Typography>
 
       <div>
-        <Typography variant="h2">Demo</Typography>
+        <Typography id="demo" variant="h2">
+          Demo
+        </Typography>
 
         <Typography>
           Full demo available at{" "}
@@ -119,7 +145,7 @@ const Terra: React.FC = () => {
           Warning: This demo is intensive! It may be slow on a laptop or phone.
         </Typography>
       </div>
-    </div>
+    </>
   );
 };
 
