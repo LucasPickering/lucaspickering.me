@@ -11,6 +11,9 @@ const useStyles = makeStyles(() => ({
     "& img": {
       display: "block",
       margin: "0 auto",
+      maxWidth: "100%",
+      maxHeight: 400,
+      objectFit: "cover",
     },
   },
 }));
@@ -23,7 +26,7 @@ const RENDERERS: React.ComponentProps<typeof ReactMarkdown>["renderers"] = {
   code: Code,
   heading: Header,
   // Bit of a hack on the width/height but it works for now
-  image: ({ src, alt }) => <img src={src} alt={alt} width="400" height="400" />,
+  image: ({ src, alt }) => <img src={src} alt={alt} />,
   link: ({ href, children }) => <Link to={href}>{children}</Link>,
   paragraph: ({ children }) => (
     <Typography variant="body1">{children}</Typography>

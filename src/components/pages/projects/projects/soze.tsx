@@ -1,9 +1,11 @@
+import Markdown from "components/common/markdown/Markdown";
 import React from "react";
 
 import { Project } from "util/post";
+import sozeMd from "./soze.md";
 
 const Soze: React.FC = () => {
-  return <p>Söze!</p>;
+  return <Markdown>{sozeMd}</Markdown>;
 };
 
 const soze: Project = {
