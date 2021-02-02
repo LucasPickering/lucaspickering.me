@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
       </div>
       <div>
         <Typography variant="h2">Wanna see some stuff?</Typography>
-        <Typography variant="h3">Here's some projects</Typography>
+        <Typography variant="h3">Here's some projects!</Typography>
         <Grid container>
           {PROJECTS.slice(0, 3).map((project) => (
             <Grid key={project.slug} item xs={12} sm={6} lg={4}>

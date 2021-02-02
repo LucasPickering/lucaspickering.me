@@ -4,6 +4,8 @@ html {
 
 body {
   margin: 0;
+  /* TODO Make this an interesting background */
+  background-color: #272727 !important;
 }
 
 html,

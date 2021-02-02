@@ -6,7 +6,7 @@ import Link from "./common/Link";
 const useStyles = makeStyles(({ spacing }) => ({
   pageFooter: {
     marginTop: "auto",
-    padding: spacing(2),
+    paddingTop: spacing(2),
     display: "flex",
     justifyContent: "center",
     "& > *": {

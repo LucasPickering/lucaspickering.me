@@ -1,22 +1,38 @@
 import { Theme, createMuiTheme, responsiveFontSizes } from "@material-ui/core";
-import { red } from "@material-ui/core/colors";
 import "@ibm/plex";
 
+function hexToRgba(hex: string, alpha: number): string {
+  const num = parseInt(hex.substring(1), 16);
+  if (!num) {
+    throw new Error(`Invalid hex color: ${hex}`);
+  }
+
+  const red = ((num >> 16) & 0xff) / 255.0;
+  const green = ((num >> 8) & 0xff) / 255.0;
+  const blue = (num & 0xff) / 255.0;
+  return `rgba(${red},${green},${blue},${alpha})`;
+}
+
 function theme(): Theme {
-  return responsiveFontSizes(
+  const theme = responsiveFontSizes(
     createMuiTheme({
       palette: {
         type: "dark",
         primary: {
-          light: "#75E6DA",
-          main: "#1cb7d6",
-          dark: "#05445E",
+          light: "#82EAFF",
+          main: "#1799B3",
+          dark: "#086375",
         },
-        secondary: red,
+        secondary: {
+          main: "#FF9721",
+          dark: "#8A4A00",
+        },
         divider: "#ffffff",
         background: {
-          default: "#011f24",
-          paper: "#05445E",
+          default: "#04323B",
+        },
+        action: {
+          focus: hexToRgba("#FF9721", 0.2),
         },
       },
 
@@ -67,22 +83,36 @@ function theme(): Theme {
           spacing: 2,
         },
       },
-      overrides: {
-        MuiCardHeader: {
-          content: {
-            "& > *": {
-              margin: 0,
-            },
-          },
-        },
-        MuiIconButton: {
-          root: {
-            borderRadius: 2,
-          },
-        },
-      },
     })
   );
+
+  // Split out overrides so we can access the palette here
+  theme.overrides = {
+    MuiCard: {
+      root: {
+        backgroundColor: theme.palette.primary.dark,
+      },
+    },
+    MuiCardHeader: {
+      content: {
+        "& > *": {
+          margin: 0,
+        },
+      },
+    },
+    MuiIconButton: {
+      root: {
+        borderRadius: 2,
+      },
+    },
+    MuiLink: {
+      root: {
+        color: theme.palette.secondary.main,
+      },
+    },
+  };
+
+  return theme;
 }
 
 export default theme;

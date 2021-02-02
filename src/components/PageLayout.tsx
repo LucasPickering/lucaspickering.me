@@ -1,17 +1,26 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Paper } from "@material-ui/core";
 import React from "react";
 
 import Navigation from "./navigation/Navigation";
 import PageFooter from "./PageFooter";
 
-const useStyles = makeStyles(({ breakpoints, spacing }) => ({
-  pageContainer: {
+const useStyles = makeStyles(({ breakpoints, palette, spacing }) => ({
+  // The entire page
+  pageLayout: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     height: "100%",
   },
-  pageBody: {
+
+  // The width-restricted column that holds the body+footer
+  pageColumn: {
+    flexGrow: 1, // Fill all vertical space
+    // Force the footer to the bottom
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+
     width: "100%",
     [breakpoints.up("xs")]: {
       maxWidth: "100%", // 12/12
@@ -22,8 +31,9 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
     [breakpoints.up("lg")]: {
       maxWidth: "67%", // 8/12
     },
+
     padding: spacing(2),
-    paddingBottom: 0, // Handled by the footer
+    backgroundColor: palette.background.default,
   },
 }));
 
@@ -31,18 +41,20 @@ const useStyles = makeStyles(({ breakpoints, spacing }) => ({
  * Container for all content on the page. This is used in the root to wrap all
  * pages.
  */
-const PageContainer: React.FC = ({ children }) => {
+const PageLayout: React.FC = ({ children }) => {
   const classes = useStyles();
 
   return (
-    <div className={classes.pageContainer}>
+    <div className={classes.pageLayout}>
       <Navigation />
 
-      <div className={classes.pageBody}>{children}</div>
+      <Paper className={classes.pageColumn}>
+        {children}
 
-      <PageFooter />
+        <PageFooter />
+      </Paper>
     </div>
   );
 };
 
-export default PageContainer;
+export default PageLayout;
