@@ -17,4 +17,4 @@ An obvious question is, if this site is just static content, why use React? The 
 
 ## Deployment
 
-Deployed through GitHub Pages. Every push to master automatically gets re-deployed.
+Deployed through [Keskne](https://github.com/LucasPickering/keskne). Every push to master automatically rebuilds the docker image that Keskne uses.

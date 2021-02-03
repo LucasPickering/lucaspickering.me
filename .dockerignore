@@ -1,0 +1,7 @@
+*
+!public/
+!src/
+!config-overrides.js
+!package.json
+!package-lock.json
+!tsconfig.json
