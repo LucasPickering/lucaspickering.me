@@ -13,10 +13,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "importsNotUsedAsValues": "remove",
-    "noEmit": true,
+    "noEmit": false,
     "jsx": "react-jsx",
+    "noFallthroughCasesInSwitch": true,
     "baseUrl": "src/",
-    "noFallthroughCasesInSwitch": true
+    "outDir": "build/"
   },
-  "include": ["./src/**/*", "./*.js"]
+  "include": ["./src", "./webpack.config.js", "./.eslintrc.js"]
 }

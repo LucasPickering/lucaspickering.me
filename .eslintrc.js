@@ -76,7 +76,7 @@ module.exports = {
   overrides: [
     {
       // Special config files
-      files: ["config-overrides.js"],
+      files: ["*.js"],
       parserOptions: {
         ecmaVersion: 3,
       },
