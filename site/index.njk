@@ -1,0 +1,11 @@
+---
+layout: default
+---
+<ul>
+  {%- for project in collections.project -%}
+  <li>
+    <a href="{{ project.url }}">{{ project.data.title }}</a>
+    <p>{{ project.data.summary }}</p>
+  </li>
+  {%- endfor -%}
+</ul>

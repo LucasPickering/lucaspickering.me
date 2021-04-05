@@ -1,3 +1,16 @@
+---
+layout: default
+title: Terra
+summary: A hexagon-tile terrain generation system. Dynamically generate and explore terrain. This is a generic toolkit that can be used to generate terrain for renderings, games, etc.
+banner: /assets/terra/banner.png
+tags:
+  - project
+  - rust
+  - 3d
+---
+
+# Terra
+
 Terra is a 3D hexagon-based terrain generation library. It provides a highly configurable series of algorithms that can generate lifelike terrain. The core library itself doesn't actually render the terrain, it just returns it in a format that makes rendering simple. It also includes a simple demo that renders the terrain in 3D, to see what it's capable of ([skip to the demo now](#demo)).
 
 Shoutout to Amit Patel for [this post](https://www.redblobgames.com/grids/hexagons/), which has been an endless resource of information for working with hex grids.
@@ -20,7 +33,7 @@ At this point, our terrain map looks something like this, where each tile has an
 
 <!-- TODO make these SVGs much smaller -->
 
-![Elevation map](/terra/elevation.svg)
+![Elevation map](/assets/terra/elevation.svg)
 
 _The red tiles are the highest elevation while the white tiles are the lowest._
 
@@ -30,7 +43,7 @@ Without going into too much detail, as this logic is subject to change, we simul
 
 At this point, each land tile will have some amount of rainfall assigned to it, which will be a function of its proximity to the ocean plus proximity to mountains and other elevation features. From here we can move onto the next step, which is simulating how that water flows and collects.
 
-![Rainfall map](/terra/humidity.svg)
+![Rainfall map](/assets/terra/humidity.svg)
 
 _The green tiles are the get the most rainfall while the white are the driest._
 
@@ -45,7 +58,7 @@ For each tile, we track two things:
 
 Once we have those, we can easily place lakes on tiles that collect a lot of water and rivers on tiles that have high water flow rates. When it's all said and done, here's what our map will look like:
 
-![Runoff map](/terra/runoff.svg)
+![Runoff map](/assets/terra/runoff.svg)
 
 _In this map, green represents runoff flow while blue is collected runoff. So the greenest tiles will become rivers, while the bluest will become lakes. Black tiles have little to know runoff flow over them, and gray tiles are ocean._
 
@@ -57,7 +70,7 @@ Because of the methodology we use to generation elevation and simulate rainfall,
 
 So after all these steps, we end up with our final product!
 
-![Final generated map](/terra/final.svg)
+![Final generated map](/assets/terra/final.svg)
 
 _Tile color here represents biomes. The darkest green is jungle, the tan is plains, etc._
 
