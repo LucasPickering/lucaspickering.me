@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Terra
 summary: A hexagon-tile terrain generation system. Dynamically generate and explore terrain. This is a generic toolkit that can be used to generate terrain for renderings, games, etc.
 banner: /assets/terra/banner.png
@@ -8,8 +7,6 @@ tags:
   - rust
   - 3d
 ---
-
-# Terra
 
 Terra is a 3D hexagon-based terrain generation library. It provides a highly configurable series of algorithms that can generate lifelike terrain. The core library itself doesn't actually render the terrain, it just returns it in a format that makes rendering simple. It also includes a simple demo that renders the terrain in 3D, to see what it's capable of ([skip to the demo now](#demo)).
 
