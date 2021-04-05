@@ -1,9 +1,13 @@
 ---
 layout: default
 ---
+
+{% markdown %}
+{%- include "./about.md" -%}
+{% endmarkdown %}
+
 <div>
   <h2>Projects</h2>
-
   {%- for project in collections.project -%}
     <div>
       <h3>
@@ -13,5 +17,4 @@ layout: default
       <p>{{ project.data.summary }}</p>
     </div>
   {%- endfor -%}
-
 </div>
