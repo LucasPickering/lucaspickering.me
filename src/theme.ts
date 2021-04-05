@@ -1,5 +1,4 @@
 import { Theme, createMuiTheme, responsiveFontSizes } from "@material-ui/core";
-import "@ibm/plex";
 
 function hexToRgba(hex: string, alpha: number): string {
   const num = parseInt(hex.substring(1), 16);
@@ -44,7 +43,7 @@ function theme(): Theme {
         // Makes math for `rem` font sizes easy
         // https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
         htmlFontSize: 10,
-        fontFamily: '"IBM Plex Sans", Helvetica, Arial, sans-serif',
+        fontFamily: "Helvetica, Arial, sans-serif",
 
         h1: {
           fontSize: "3.2rem",
