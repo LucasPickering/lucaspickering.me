@@ -1,0 +1,19 @@
+/* CSS related specifically to the nav header */
+
+header {
+  width: 100%;
+}
+
+#nav-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  width: 100%;
+  font-size: 2.4rem;
+  padding: 8px 0;
+}
+
+#title-link {
+  font-size: 3.2rem;
+}

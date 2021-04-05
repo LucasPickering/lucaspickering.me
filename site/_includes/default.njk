@@ -3,22 +3,40 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="theme-color" content="#1cb7d6"/>
+    <meta name="theme-color" content="#383838"/>
     <meta name="description" content="Me!"/>
-    <!-- Enable once we have a favicon -->
-    <!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
-    <link rel="stylesheet" href="/styles/styles.css"/>
+    <!-- TODO Enable once we have a favicon -->
+    <!-- <link rel="icon" href="/favicon.ico" /> -->
+    <link rel="stylesheet" href="/styles/global.css"/>
+    <link rel="stylesheet" href="/styles/header.css"/>
+    <link rel="stylesheet" href="/styles/main.css"/>
+    <link rel="stylesheet" href="/styles/footer.css"/>
     <title>{{title}}</title>
   </head>
   <body>
     <div id="root">
       <div id="content-wrapper">
-        <nav id="nav-bar">
-        asdf
-      </nav>
-        <main>
+        <header>
+          <nav id="nav-bar">
+            {# Main site link #}
+            <a id="title-link" href="/">A Thought</a>
+
+            {# All the other links #}
+            <div>
+              <a href="/about/">About</a>
+            </div>
+          </nav>
+        </header>
+
+        <main id="main-content">
           {{ content | safe }}
         </main>
+
+        <footer id="footer">
+          <a href="mailto:lucas@lucaspickering.me">Email</a>
+          <a href="https://github.com/LucasPickering">GitHub</a>
+          <a href="/">Recursion!</a>
+        </footer>
       </div>
     </div>
   </body>

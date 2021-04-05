@@ -1,0 +1,11 @@
+/* CSS related specifically to the main doc content */
+
+#main-content {
+  max-width: 800px;
+}
+
+.banner-small {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
