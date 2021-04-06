@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#383838"/>
+    <meta name="description" content="Me!"/>
+    <link rel="icon" href="/favicon.ico"/>
+    <link rel="stylesheet" href="/theme.css"/>
+    <title>Lucas Pickering | {{title}}</title>
+  </head>
+  <body>
+    <div id="root">
+      <div id="content-wrapper">
+        <header>
+          <nav id="nav-bar">
+            <a id="title-link" href="/">A Thought</a>
+            <p class="caption">(All I could muster)</p>
+          </nav>
+        </header>
+
+        <main id="main-content">
+          {{ content | safe }}
+        </main>
+
+        <footer id="footer">
+          <a href="mailto:lucas@lucaspickering.me">Email</a>
+          <a href="https://github.com/LucasPickering">GitHub</a>
+          <a href="/">Recursion!</a>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
