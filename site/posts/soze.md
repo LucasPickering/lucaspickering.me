@@ -1,6 +1,6 @@
 ---
 title: Söze
-date: 2021-04-05
+date: 2020-11-29
 summary: Hardware mods for my PC, with a suite of software services to make it all run smoothly. The mods include an LCD mounted on the front and a strip of RGB LEDs inside, all driven by a Raspberry Pi Zero.
 banner: /assets/soze/banner.png
 links: { Code: "https://github.com/LucasPickering/soze" }

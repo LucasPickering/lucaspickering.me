@@ -13,7 +13,7 @@ title: Home
   </p>
 
   <h2>Projects</h2>
-  {%- for project in collections.project -%}
+  {%- for project in collections.project | reverse-%}
     <div>
       <div class="post-title-group">
         <h3>
