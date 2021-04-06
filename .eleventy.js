@@ -25,12 +25,18 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
+  // CSS minifier
   eleventyConfig.addFilter("cssmin", function (code) {
     return new CleanCSS({}).minify(code).styles;
   });
-  eleventyConfig.addPairedShortcode("markdown", (content) => {
-    return markdownLibrary.render(content);
-  });
+
+  // Clean date formatter
+  eleventyConfig.addShortcode("date", (date) =>
+    new Intl.DateTimeFormat(undefined, {
+      dateStyle: "long",
+      timeZone: "UTC",
+    }).format(date)
+  );
 
   return {
     dir: {
