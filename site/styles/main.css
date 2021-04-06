@@ -1,7 +1,7 @@
 /* CSS related specifically to the main doc content */
 
 .main-content {
-  max-width: 800px;
+  width: 100%;
 }
 
 .post-header {
