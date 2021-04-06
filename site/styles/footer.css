@@ -1,14 +1,14 @@
 /* CSS related specifically to the page footer */
 
-#footer {
+.footer {
   display: flex;
   justify-content: center;
   margin-top: auto;
-  margin-bottom: 8px;
+  padding-bottom: 8px;
 
   font-size: 1.4rem;
 }
 
-#footer > :not(:first-child) {
-  margin-left: 8px;
+.footer > :not(:first-child) {
+  margin-left: 16px;
 }

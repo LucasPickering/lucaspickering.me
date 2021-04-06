@@ -10,7 +10,7 @@ header {
   justify-content: space-between;
 
   width: 100%;
-  font-size: 2.4rem;
+  font-size: 2rem;
   padding: 8px 0;
 }
 
@@ -26,4 +26,8 @@ header {
 .caption {
   font-size: 1rem;
   margin: 8px 0 0 4px;
+}
+
+.other-links > :not(:first-child) {
+  margin-left: 16px;
 }

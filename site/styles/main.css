@@ -1,7 +1,30 @@
 /* CSS related specifically to the main doc content */
 
-#main-content {
+.main-content {
   max-width: 800px;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin: 24px 0;
+}
+
+.post-header h1 {
+  margin: 0;
+}
+
+.post-title-group {
+  margin: 16px 0;
+}
+
+.post-title-group h3 {
+  margin: 0;
+}
+
+.post-date {
+  font-size: 1.4rem;
 }
 
 .banner {
