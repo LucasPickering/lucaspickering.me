@@ -3,7 +3,15 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.setTemplateFormats(["css", "html", "md", "njk", "jpg", "png"]);
+  eleventyConfig.setTemplateFormats([
+    "css",
+    "html",
+    "md",
+    "njk",
+    "jpg",
+    "png",
+    "ico",
+  ]);
 
   // Markdown Overrides
   let markdownLibrary = markdownIt({
