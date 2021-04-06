@@ -11,6 +11,8 @@ tags:
   - hardware
 ---
 
+## Background
+
 A long time ago (circa 2013), I decided I wanted to mod my PC. Fortunately, my case (the [BitFenix Prodigy](https://www.bitfenix.com/products/chassis/mini-itx/prodigy/)) is very amenable to that kind of thing, so I had a lot of options. Over the years, I added stuff, took it away, changed it, turned it upside, and eventually ended up with what I have today: an RGB LED strip, and a character LCD mounted to the front.
 
 ![PC](/assets/soze/pc.jpg)
