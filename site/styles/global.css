@@ -57,7 +57,7 @@ img {
   justify-content: center;
 }
 
-#content-wrapper {
+.content-wrapper {
   width: min(800px, 100%);
   margin: 0 24px;
   display: flex;
