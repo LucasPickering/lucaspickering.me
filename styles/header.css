@@ -4,16 +4,22 @@ header {
   width: 100%;
 }
 
-#nav-bar {
+.nav-bar {
   display: flex;
-  align-items: start;
+  align-items: end;
+  justify-content: space-between;
 
   width: 100%;
   font-size: 2.4rem;
   padding: 8px 0;
 }
 
-#title-link {
+.title-link-wrapper {
+  display: flex;
+  align-items: start;
+}
+
+.title-link {
   font-size: 3.2rem;
 }
 
