@@ -3,10 +3,18 @@ const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.setTemplateFormats(["html", "md", "njk"]);
-  for (const ext in ["css", "jpg", "png", "ico"]) {
-    eleventyConfig.addPassthroughCopy(`**/*.${ext}`);
-  }
+  eleventyConfig.setTemplateFormats([
+    "html",
+    "md",
+    "njk",
+    // These ones aren't actually templates but this is the only way to get 11ty
+    // to watch+copy these files
+    "css",
+    "jpg",
+    "png",
+    "ico",
+    "svg",
+  ]);
 
   // Markdown Overrides
   let markdownLibrary = markdownIt({
