@@ -38,6 +38,11 @@ module.exports = function (eleventyConfig) {
     }).format(date)
   );
 
+  // For inlining markdown
+  eleventyConfig.addPairedShortcode("markdown", (content) => {
+    return markdownLibrary.render(content);
+  });
+
   return {
     dir: {
       input: "site",
