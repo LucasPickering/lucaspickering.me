@@ -3,6 +3,11 @@ title: Terra
 date: 2021-04-05
 summary: A hexagon-tile terrain generation system. Dynamically generate and explore terrain. This is a generic toolkit that can be used to generate terrain for renderings, games, etc.
 banner: /assets/terra/banner.png
+links:
+  {
+    Code: "https://github.com/LucasPickering/terra-rs",
+    Site: "https://terra.lucaspickering.me",
+  }
 tags:
   - project
   - rust

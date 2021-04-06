@@ -1,6 +1,11 @@
 ---
 layout: markdown
 ---
+<div class="post-links">
+  {% for label, href in links %}
+    <a href="{{href}}">{{label}}</a>
+  {% endfor %}
+</div>
 <img class="banner" src="{{ banner }}"/>
 <div>
   {{ content | safe }}
