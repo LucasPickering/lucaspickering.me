@@ -1,3 +1,4 @@
+const CleanCSS = require("clean-css");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 
@@ -16,6 +17,9 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.setLibrary("md", markdownLibrary);
 
+  eleventyConfig.addFilter("cssmin", function (code) {
+    return new CleanCSS({}).minify(code).styles;
+  });
   eleventyConfig.addPairedShortcode("markdown", (content) => {
     return markdownLibrary.render(content);
   });
