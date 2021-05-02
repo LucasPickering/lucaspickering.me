@@ -13,7 +13,7 @@ html {
 body {
   height: 100%;
   margin: 0;
-  background-color: #383838;
+  background-color: #212930;
   color: white;
   font-size: 1.6rem;
 }
@@ -37,7 +37,7 @@ h6 {
   font-size: 1.2rem;
 }
 a {
-  color: #0ac0c9;
+  color: #5dabc1;
   text-decoration: none;
 }
 a:hover {
