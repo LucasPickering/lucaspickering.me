@@ -30,6 +30,7 @@
 .post-links {
   display: flex;
   margin: 16px 0;
+  font-size: 2rem;
 }
 
 .post-links > :not(:first-child) {

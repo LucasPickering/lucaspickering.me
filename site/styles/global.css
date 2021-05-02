@@ -7,13 +7,13 @@ html {
    * https://www.sitepoint.com/understanding-and-using-rem-units-in-css/
   */
   font-size: 10px;
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: "Trebuchet MS", Arial, sans-serif;
 }
 
 body {
   height: 100%;
   margin: 0;
-  background-color: #383838;
+  background-color: #212930;
   color: white;
   font-size: 1.6rem;
 }
@@ -37,7 +37,7 @@ h6 {
   font-size: 1.2rem;
 }
 a {
-  color: #0ac0c9;
+  color: #5dabc1;
   text-decoration: none;
 }
 a:hover {

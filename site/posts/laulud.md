@@ -1,7 +1,7 @@
 ---
 title: Laulud
 date: 2021-04-06
-summary: Ever wanted to assign tags to tracks, albums, and artists in Spotify? No? Well I'm neurotic so I have. Laulud is a simple site to browse and tag Spotify items.
+summary: Ever wanted to assign tags to tracks, albums, and artists in Spotify? No? Well I have because I'm neurotic. Laulud is a simple site to browse and tag Spotify items.
 banner: /assets/laulud/banner.png
 links:
   {
