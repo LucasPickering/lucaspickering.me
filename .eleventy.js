@@ -9,7 +9,6 @@ module.exports = function (eleventyConfig) {
     "njk",
     // These ones aren't actually templates but this is the only way to get 11ty
     // to watch+copy these files
-    "css",
     "jpg",
     "png",
     "ico",
