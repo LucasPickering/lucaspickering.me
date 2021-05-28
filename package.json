@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "clean-css": "^5.1.2",
