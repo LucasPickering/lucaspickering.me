@@ -44,26 +44,26 @@
 </div>
 <img class="banner" src="/assets/terra/banner.png"/>
 <div>
-  <h2 id="intro">Intro <a class="direct-link" href="#intro">#</a></h2>
+  <h2 id="intro" tabindex="-1">Intro <a class="direct-link" href="#intro">#</a></h2>
 <p>Terra is a 3D hexagon-based terrain generation library. It provides a highly configurable series of algorithms that can generate lifelike terrain. The core library itself doesn't actually render the terrain, it just returns it in a format that makes rendering simple. It also includes a simple demo that renders the terrain in 3D, to see what it's capable of (<a href="#demo">skip to the demo now</a>).</p>
 <p>Shoutout to Amit Patel for <a href="https://www.redblobgames.com/grids/hexagons/">this post</a>, which has been an endless resource of information for working with hex grids.</p>
-<h2 id="how-does-it-work%3F">How does it work? <a class="direct-link" href="#how-does-it-work%3F">#</a></h2>
+<h2 id="how-does-it-work%3F" tabindex="-1">How does it work? <a class="direct-link" href="#how-does-it-work%3F">#</a></h2>
 <p>The generator takes in a configuration object that contains a bunch of parameters that define the generation process. Chief among these is the <a href="https://en.wikipedia.org/wiki/Random_seed">random seed</a>. Beyond that, there are lots of different levers to control how different steps in the process behave. Based on the configuration, the generator applies a series of steps to initialize the world and create terrain.</p>
 <p>If you're curious, all the code for terrain generation <a href="https://github.com/LucasPickering/terra-rs/tree/master/crates/core/src/world/generate">lives here</a>.</p>
-<h3 id="step-0---initialize-the-world">Step 0 - Initialize the world <a class="direct-link" href="#step-0---initialize-the-world">#</a></h3>
+<h3 id="step-0---initialize-the-world" tabindex="-1">Step 0 - Initialize the world <a class="direct-link" href="#step-0---initialize-the-world">#</a></h3>
 <p>We start by initializing a world based on the defined world radius in the config. Each tile is initialized but doesn't actually have any properties assigned yet. I haven't included a picture for this step because there isn't really anything to see yet.</p>
-<h3 id="step-1---generate-elevation-maps">Step 1 - Generate elevation maps <a class="direct-link" href="#step-1---generate-elevation-maps">#</a></h3>
+<h3 id="step-1---generate-elevation-maps" tabindex="-1">Step 1 - Generate elevation maps <a class="direct-link" href="#step-1---generate-elevation-maps">#</a></h3>
 <p>We start by defining an elevation for each tile, using a <a href="https://en.wikipedia.org/wiki/Perlin_noise">Perlin noise function</a>. Once again, credit to Amit Patel with <a href="https://www.redblobgames.com/maps/terrain-from-noise/">another great post</a> that explains noise-based terrain generation.</p>
 <p>At this point, our terrain map looks something like this, where each tile has an elevation defined, but nothing else.</p>
 <!-- TODO make these SVGs much smaller -->
 <p><img src="/assets/terra/elevation.svg" alt="Elevation map"></p>
 <p><em>The red tiles are the highest elevation while the white tiles are the lowest.</em></p>
-<h3 id="step-2---simulate-rainfall">Step 2 - Simulate rainfall <a class="direct-link" href="#step-2---simulate-rainfall">#</a></h3>
+<h3 id="step-2---simulate-rainfall" tabindex="-1">Step 2 - Simulate rainfall <a class="direct-link" href="#step-2---simulate-rainfall">#</a></h3>
 <p>Without going into too much detail, as this logic is subject to change, we simulate rainfall across the terrain. To do this, we first define where oceans will form based on which tiles are below sea level. Then, we pick a prevailing wind direction, which is uniform over the terrain. From there we can simulate evaporation (which occurs over bodies of water) and rainfall (which collects on tiles). This simulation is elevation-aware, meaning the spread of rainfall is affected by mountains. So land that is downwind of bodies of water gets the most rain, while land downwind of a mountain range won't get very much rain at all.</p>
 <p>At this point, each land tile will have some amount of rainfall assigned to it, which will be a function of its proximity to the ocean plus proximity to mountains and other elevation features. From here we can move onto the next step, which is simulating how that water flows and collects.</p>
 <p><img src="/assets/terra/humidity.svg" alt="Rainfall map"></p>
 <p><em>The green tiles are the get the most rainfall while the white are the driest.</em></p>
-<h3 id="step-3---simulate-runoff">Step 3 - Simulate runoff <a class="direct-link" href="#step-3---simulate-runoff">#</a></h3>
+<h3 id="step-3---simulate-runoff" tabindex="-1">Step 3 - Simulate runoff <a class="direct-link" href="#step-3---simulate-runoff">#</a></h3>
 <p>Runoff simulation is the process of simulating how water flows from one tile to the next, and where that runoff collects. The purpose of this step is to determine where rivers and lakes would naturally form on the terrain. The actual algorithms involved here are pretty complicated and subject to change so I won't detail them too much, but the simplified version is this:</p>
 <p>For each tile, we track two things:</p>
 <ol>
@@ -73,21 +73,21 @@
 <p>Once we have those, we can easily place lakes on tiles that collect a lot of water and rivers on tiles that have high water flow rates. When it's all said and done, here's what our map will look like:</p>
 <p><img src="/assets/terra/runoff.svg" alt="Runoff map"></p>
 <p><em>In this map, green represents runoff flow while blue is collected runoff. So the greenest tiles will become rivers, while the bluest will become lakes. Black tiles have little to no runoff flow over them, and gray tiles are ocean.</em></p>
-<h3 id="step-4---assign-biomes">Step 4 - Assign biomes <a class="direct-link" href="#step-4---assign-biomes">#</a></h3>
+<h3 id="step-4---assign-biomes" tabindex="-1">Step 4 - Assign biomes <a class="direct-link" href="#step-4---assign-biomes">#</a></h3>
 <p>Terra has a number of different biomes, which are assigned to tiles based on each tile's individual elevation and humidity. By now we know what elevation is, but what is humidity? Humidity is derived from rainfall, meaning tiles that get the most rain are the most humid. Makes sense, right?</p>
 <p>Because of the methodology we use to generation elevation and simulate rainfall, they both form in smooth gradients where each tile is going to have a pretty similar elevation &amp; humidity to the ones next to it. This means that biomes form in nice, natural-looking clusters.</p>
 <p>So after all these steps, we end up with our final product!</p>
 <p><img src="/assets/terra/final.svg" alt="Final generated map"></p>
 <p><em>Tile color here represents biomes. The darkest green is jungle, the tan is plains, etc.</em></p>
-<h2 id="so-what-are-you-gonna-do-with-this%3F">So what are you gonna do with this? <a class="direct-link" href="#so-what-are-you-gonna-do-with-this%3F">#</a></h2>
+<h2 id="so-what-are-you-gonna-do-with-this%3F" tabindex="-1">So what are you gonna do with this? <a class="direct-link" href="#so-what-are-you-gonna-do-with-this%3F">#</a></h2>
 <p>Right now this project exists on its own, meaning I'm not using it as part of any other projects. But given its modular and configurable design, I plan to use it as part of a few different game ideas that I have. Interesting terrain can be used in all kinds of different ways to make games feel varied and immersive. For now though, I'm just working on fleshing out this project.</p>
 <p>TL;DR: You'll have to wait and see.</p>
-<h2 id="can-i-use-it%3F">Can I use it? <a class="direct-link" href="#can-i-use-it%3F">#</a></h2>
+<h2 id="can-i-use-it%3F" tabindex="-1">Can I use it? <a class="direct-link" href="#can-i-use-it%3F">#</a></h2>
 <p>Please do! The crate isn't published to <a href="https://crates.io">crates.io</a> (yet), but you can pull it in via the git URL, with something like this:</p>
 <pre><code class="language-toml">terra = { git = &quot;https://github.com/LucasPickering/terra-rs&quot;, branch = &quot;master&quot; }
 </code></pre>
 <p>If do you start using this, please let me know what you think! Always open to suggestions, and if people are actually using this I can put it up on <code>crates.io</code> to make usage easier.</p>
-<h2 id="demo">Demo <a class="direct-link" href="#demo">#</a></h2>
+<h2 id="demo" tabindex="-1">Demo <a class="direct-link" href="#demo">#</a></h2>
 <p>This demo is a simple TypeScript app that renders Terra terrain in 3D, entirely in the browser. This is accomplished by compiling Terra to <a href="https://webassembly.org/">WebAssembly</a>, then importing it from the TypeScript app. This is just a simple example of what you can do with Terra. The standalone version is available at <a href="https://terra.lucaspickering.me/">terra.lucaspickering.me</a>.</p>
 
 </div>
