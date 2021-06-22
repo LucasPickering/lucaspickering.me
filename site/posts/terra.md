@@ -65,7 +65,7 @@ Once we have those, we can easily place lakes on tiles that collect a lot of wat
 
 ![Runoff map](/assets/terra/runoff.svg)
 
-_In this map, green represents runoff flow while blue is collected runoff. So the greenest tiles will become rivers, while the bluest will become lakes. Black tiles have little to know runoff flow over them, and gray tiles are ocean._
+_In this map, green represents runoff flow while blue is collected runoff. So the greenest tiles will become rivers, while the bluest will become lakes. Black tiles have little to no runoff flow over them, and gray tiles are ocean._
 
 ### Step 4 - Assign biomes
 
