@@ -72,7 +72,7 @@
 </ol>
 <p>Once we have those, we can easily place lakes on tiles that collect a lot of water and rivers on tiles that have high water flow rates. When it's all said and done, here's what our map will look like:</p>
 <p><img src="/assets/terra/runoff.svg" alt="Runoff map"></p>
-<p><em>In this map, green represents runoff flow while blue is collected runoff. So the greenest tiles will become rivers, while the bluest will become lakes. Black tiles have little to know runoff flow over them, and gray tiles are ocean.</em></p>
+<p><em>In this map, green represents runoff flow while blue is collected runoff. So the greenest tiles will become rivers, while the bluest will become lakes. Black tiles have little to no runoff flow over them, and gray tiles are ocean.</em></p>
 <h3 id="step-4---assign-biomes">Step 4 - Assign biomes <a class="direct-link" href="#step-4---assign-biomes">#</a></h3>
 <p>Terra has a number of different biomes, which are assigned to tiles based on each tile's individual elevation and humidity. By now we know what elevation is, but what is humidity? Humidity is derived from rainfall, meaning tiles that get the most rain are the most humid. Makes sense, right?</p>
 <p>Because of the methodology we use to generation elevation and simulate rainfall, they both form in smooth gradients where each tile is going to have a pretty similar elevation &amp; humidity to the ones next to it. This means that biomes form in nice, natural-looking clusters.</p>
