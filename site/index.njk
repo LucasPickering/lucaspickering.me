@@ -15,17 +15,17 @@ title: Home
     galaxy! Much like the Milky Way, it's mostly vacuous.
   </p>
 
-  <h2>Projects</h2>
-  {%- for project in collections.project | reverse-%}
+  <h2>Recent Posts</h2>
+  {%- for post in collections.post | reverse-%}
     <div>
       <div class="post-title-group">
         <h3>
-          <a href="{{ project.url }}">{{ project.data.title }}</a>
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
         </h3>
-        <span class="post-date">{% date project.date %}</span>
+        <span class="post-date">{% date post.date %}</span>
       </div>
-      <img class="banner-small" src="{{ project.data.banner }}"/>
-      <p>{{ project.data.summary }}</p>
+      <img class="banner-small" src="{{ post.data.banner }}"/>
+      <p>{{ post.data.summary }}</p>
     </div>
   {%- endfor -%}
 </div>

@@ -9,6 +9,7 @@ links:
     Site: "https://laulud.lucaspickering.me",
   }
 tags:
+  - post
   - project
   - rust
   - typescript
