@@ -4,6 +4,8 @@
   width: 100%;
 }
 
+/* Posts */
+
 .post-header {
   display: flex;
   justify-content: space-between;
@@ -37,6 +39,8 @@
   margin-left: 16px;
 }
 
+/* Banner */
+
 .banner {
   width: 100%;
   height: 300px;
@@ -47,4 +51,17 @@
   width: 100%;
   height: 180px;
   object-fit: cover;
+}
+
+/* Images */
+
+.img-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.img-container img {
+  height: auto;
+  object-fit: contain;
 }
