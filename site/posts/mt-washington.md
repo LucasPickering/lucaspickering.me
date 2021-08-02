@@ -1,10 +1,10 @@
 ---
 title: "Cogs and Cairns: A Hike Up Mount Washington"
 date: 2021-07-28
-summary: A 10-mile journey on New England's least friendly mountain.
+summary: A 10-mile journey on New England's unfriendliest mountain.
 banner: /assets/mt-washington/DSC_0216.jpg
 tags:
-  # - post
+  - post
   - photo
 ---
 
@@ -12,7 +12,7 @@ tags:
 
 {% image "/assets/mt-washington/DSC_0136.jpg" "Onward and upward." %}
 
-{% image "/assets/mt-washington/DSC_0138.jpg" "Thick and verdant undergrowth covers the base of the mountain." %}
+{% image "/assets/mt-washington/DSC_0138.jpg" "Verdant undergrowth covers the base of the mountain." %}
 
 {% image "/assets/mt-washington/DSC_0152.jpg" "Thousands of hikers climb the mountain on a sunny summer day." %}
 
@@ -24,7 +24,7 @@ tags:
 
 {% image "/assets/mt-washington/DSC_0206.jpg" "Once you breach the treeline, hundreds of cairns guide the way. A necessity when the weather it at its worst." %}
 
-{% image "/assets/mt-washington/DSC_0210.jpg" "From here you catch the first glimpses of the mountain's apex. The weather station at the summit is visible from miles away." %}
+{% image "/assets/mt-washington/DSC_0210.jpg" "The first glimpses of the mountain's apex. The weather station at the summit is visible from miles away." %}
 
 {% image "/assets/mt-washington/DSC_0221.jpg" "A lone cairn on a cliff's edge." %}
 
@@ -41,7 +41,7 @@ tags:
 
 {% image "/assets/mt-washington/DSC_0248.jpg" "The view back to the hut, about halfway from the lakes to the summit." %}
 
-{% image "/assets/mt-washington/DSC_0244.jpg" "The unweathered stones provide a sort of lunar backdrop to the final leg of the climb." %}
+{% image "/assets/mt-washington/DSC_0244.jpg" "The rough stones provide a sort of lunar backdrop to the final leg of the climb." %}
 
 {% image "/assets/mt-washington/DSC_0255.jpg" "The Tuckerman trail crosses the alpine moonscape." %}
 
@@ -64,7 +64,7 @@ tags:
 
 {% image "/assets/mt-washington/DSC_0336.jpg" "Dozens of visitors waited for their turn at the summit. We opted not to get any closer than this." %}
 
-{% image "/assets/mt-washington/DSC_0254.jpg" "The aging infrastructure feels out of place for the top of a mountain, but is a testament to man's insistence on developing even the harshest of environments." %}
+{% image "/assets/mt-washington/DSC_0254.jpg" "Even the harshest of environments can be developed." %}
 
 ## Descent
 
@@ -76,7 +76,7 @@ tags:
 
 {% image "/assets/mt-washington/DSC_0433.jpg" "The famous Bretton Woods resort and the White Mountains beyond." %}
 
-{% image "/assets/mt-washington/DSC_0445.jpg" "Each hiker makes their mark on the mountain, carving the path a little bit deeper." %}
+{% image "/assets/mt-washington/DSC_0445.jpg" "Each hiker carves the path a little bit deeper." %}
 
 {% image "/assets/mt-washington/DSC_0460.jpg" "The circle of life." %}
 
