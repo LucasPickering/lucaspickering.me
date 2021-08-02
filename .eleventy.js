@@ -1,6 +1,11 @@
 const CleanCSS = require("clean-css");
+const Image = require("@11ty/eleventy-img");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const path = require('path');
+
+const inputDir = './site';
+const outputDir = './build';
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.setTemplateFormats([
@@ -40,6 +45,26 @@ module.exports = function (eleventyConfig) {
     }).format(date)
   );
 
+  // This makes fancy rescaled versions of images
+  eleventyConfig.addShortcode("image", async (src, alt, sizes="(min-width: 30em) 50vw, 100vm") => {
+    let metadata = await Image(path.join(inputDir, src), {
+      widths: [600, 1200],
+      formats: ["jpeg"],
+      urlPath: '/assets/generated',
+      outputDir: path.join(outputDir, '/assets/generated'),
+    });
+
+    let imageAttributes = {
+      alt,
+      sizes,
+      loading: "lazy",
+      decoding: "async",
+    };
+
+    const image = Image.generateHTML(metadata, imageAttributes);
+    return `<div class="img-container">${image}<em>${alt}</em></div>`
+  });
+
   // For inlining markdown
   eleventyConfig.addPairedShortcode("markdown", (content) => {
     return markdownLibrary.render(content);
@@ -47,8 +72,8 @@ module.exports = function (eleventyConfig) {
 
   return {
     dir: {
-      input: "site",
-      output: "build",
+      input: inputDir,
+      output: outputDir,
     },
   };
 };

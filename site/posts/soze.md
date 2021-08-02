@@ -5,6 +5,7 @@ summary: Hardware mods for my PC, with a suite of software services to make it a
 banner: /assets/soze/banner.png
 links: { Code: "https://github.com/LucasPickering/soze" }
 tags:
+  - post
   - project
   - python
   - typescript

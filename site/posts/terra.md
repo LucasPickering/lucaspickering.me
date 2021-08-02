@@ -9,6 +9,7 @@ links:
     Site: "https://terra.lucaspickering.me",
   }
 tags:
+  - post
   - project
   - rust
   - 3d
