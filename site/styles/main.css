@@ -7,9 +7,6 @@
 /* Posts */
 
 .post-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
   margin: 24px 0;
 }
 

@@ -1,10 +1,10 @@
 ---
 title: "Cogs and Cairns: A Hike Up Mount Washington"
 date: 2021-07-28
-summary: A 10-mile journey on New England's least friendly mountain.
+summary: A 10-mile journey on New England's unfriendliest mountain.
 banner: /assets/mt-washington/DSC_0216.jpg
 tags:
-  # - post
+  - post
   - photo
 ---
 
