@@ -1,0 +1,12 @@
+/* Images */
+
+.img-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 24px;
+}
+
+.img-container img {
+  height: auto;
+  object-fit: contain;
+}

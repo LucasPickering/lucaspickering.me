@@ -1,0 +1,27 @@
+.postHeader {
+  margin: 24px 0;
+}
+
+.postHeader h1 {
+  margin: 0;
+}
+
+.postDate {
+  font-size: 1.4rem;
+}
+
+.postLinks {
+  display: flex;
+  margin: 16px 0;
+  font-size: 2rem;
+}
+
+.postLinks > :not(:first-child) {
+  margin-left: 16px;
+}
+
+.banner {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}

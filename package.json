@@ -2,20 +2,35 @@
   "name": "lucaspickering.me",
   "version": "0.1.0",
   "private": true,
-  "license": "MIT",
-  "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "clean-css": "^5.1.2",
-    "markdown-it-anchor": "^8.0.3"
+  "license": "Unlicensed",
+  "dependencies": {
+    "@types/react": "^17.0.17",
+    "@types/react-dom": "^17.0.9",
+    "babel-plugin-superjson-next": "^0.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "gray-matter": "^4.0.3",
+    "next": "^11.1.0",
+    "prettier": "^2.3.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rehype-react": "^7.0.0",
+    "remark-parse": "^10.0.0",
+    "remark-rehype": "^9.0.0",
+    "superjson": "^1.7.5",
+    "typescript": "^4.3.5",
+    "unified": "^10.1.0"
   },
   "scripts": {
     "clean": "rm -rf ./build",
-    "prebuild": "npm run clean",
-    "build": "npx @11ty/eleventy",
-    "prestart": "npm run clean",
-    "start": "npx @11ty/eleventy --serve --port=3000"
-  },
-  "dependencies": {
-    "@11ty/eleventy-img": "^0.9.0"
+    "export": "next export",
+    "dev": "next dev",
+    "analyze": "NODE_ENV=production WEBPACK_BUNDLE_ANALYZER_MODE=server webpack",
+    "lint": "eslint '**/*.{js,ts,tsx}'"
   }
 }

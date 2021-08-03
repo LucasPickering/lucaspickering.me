@@ -1,0 +1,17 @@
+.postTitleGroup {
+  margin: 16px 0;
+}
+
+.postTitle {
+  margin: 0;
+}
+
+.postDate {
+  font-size: 1.4rem;
+}
+
+.banner {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
