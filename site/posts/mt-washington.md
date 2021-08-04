@@ -22,7 +22,7 @@ tags:
 
 ## Lakes of the Clouds
 
-{% image "/assets/mt-washington/DSC_0206.jpg" "Once you breach the treeline, hundreds of cairns guide the way. A necessity when the weather it at its worst." %}
+{% image "/assets/mt-washington/DSC_0206.jpg" "Once you breach the treeline, hundreds of cairns guide the way. A necessity when the weather is at its worst." %}
 
 {% image "/assets/mt-washington/DSC_0210.jpg" "The first glimpses of the mountain's apex. The weather station at the summit is visible from miles away." %}
 
