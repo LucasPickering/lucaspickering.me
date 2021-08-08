@@ -8,6 +8,10 @@ tags:
   - photo
 ---
 
+At 6,288 feet, Mount Washington is New England's tallest mountain. It also bears some of the harshest weather in the world (read on if you don't believe me). Most unique of all though, there are _three_ different ways to reach the top of the mountain: by foot, by car, and by train.
+
+This is my story of climbing Mount Washington. There are many like it, but this one is mine.
+
 ## Ammonoosuc Ravine Trail
 
 {% image "/assets/mt-washington/DSC_0136.jpg" "Onward and upward." %}
@@ -34,7 +38,6 @@ tags:
 
 {% image "/assets/mt-washington/DSC_0239.jpg" "The hut's namesake." %}
 
-
 ## The Worst Weather in America
 
 {% image "/assets/mt-washington/DSC_0233.jpg" "A stern warning, fortunately not relevant today." %}
@@ -44,7 +47,6 @@ tags:
 {% image "/assets/mt-washington/DSC_0244.jpg" "The rough stones provide a sort of lunar backdrop to the final leg of the climb." %}
 
 {% image "/assets/mt-washington/DSC_0255.jpg" "The Tuckerman trail crosses the alpine moonscape." %}
-
 
 ## Mount Washington Cog Railway
 
