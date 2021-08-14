@@ -13,9 +13,9 @@ const NavHeader: React.FC = ({ children }) => (
 
       {/* Other links */}
       <div className={styles.otherLinks}>
-        <a href="/projects/">Projects</a>
-        <a href="/photos/">Photos</a>
-        <a href="/about/">About Me</a>
+        <a href="/projects">Projects</a>
+        <a href="/photos">Photos</a>
+        <a href="/about">About Me</a>
         <a href="https://github.com/LucasPickering">GitHub</a>
       </div>
     </nav>
