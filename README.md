@@ -4,11 +4,13 @@ A place for me to collect all my thoughts and derangements in one place. Static 
 
 ## Development
 
+The site is built with React + Next.js.
+
 ### Running Locally
 
 - Clone the repo
 - `npm install`
-- `npm run start`
+- `npm run dev`
 - Edit stuff
 
 ## Deployment

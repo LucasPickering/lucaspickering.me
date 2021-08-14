@@ -1,0 +1,5 @@
+{
+  "presets": ["next/babel"],
+  // Allows us to pass dates in component props
+  "plugins": ["superjson-next"]
+}
