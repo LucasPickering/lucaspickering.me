@@ -1,12 +1,12 @@
----
-title: "Cogs and Cairns: A Hike Up Mount Washington"
-date: 2021-07-28
-summary: A 10-mile journey on New England's unfriendliest mountain.
-banner: /assets/mt-washington/DSC_0216.jpg
-tags:
-  - post
-  - photo
----
+import PostView from "@root/components/PostView";
+
+export const metadata = {
+  title: "Cogs and Cairns: A Hike Up Mount Washington",
+  date: "2021-07-28",
+  summary: "A 10-mile journey on New England's unfriendliest mountain.",
+  banner: "/assets/mt-washington/DSC_0216.jpg",
+  tags: ["post", "photo"],
+};
 
 At 6,288 feet, Mount Washington is New England's tallest mountain. It also bears some of the harshest weather in the world (read on if you don't believe me). Most unique of all though, there are _three_ different ways to reach the top of the mountain: by foot, by car, and by train.
 
@@ -87,3 +87,7 @@ This is my story of climbing Mount Washington. There are many like it, but this 
 ![Back on the valley floor, streams and waterfalls provide a soundtrack to the last steps of the journey.](/assets/mt-washington/DSC_0474.jpg)
 
 ![This is about how my legs felt by this point.](/assets/mt-washington/DSC_0478.jpg)
+
+export default ({ children }) => (
+  <PostView metadata={metadata}>{children}</PostView>
+);

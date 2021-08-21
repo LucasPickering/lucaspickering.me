@@ -6,7 +6,7 @@ interface Props<P> {
   pageProps: P;
 }
 
-export default function MyApp<P>({ Component, pageProps }: Props<P>) {
+export default function App<P>({ Component, pageProps }: Props<P>) {
   return (
     <>
       <Head>

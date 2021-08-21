@@ -1,16 +1,16 @@
----
-title: Söze
-date: 2020-11-29
-summary: Hardware mods for my PC, with a suite of software services to make it all run smoothly. The mods include an LCD mounted on the front and a strip of RGB LEDs inside, all driven by a Raspberry Pi Zero.
-banner: /assets/soze/banner.png
-links: { Code: "https://github.com/LucasPickering/soze" }
-tags:
-  - post
-  - project
-  - python
-  - typescript
-  - hardware
----
+import PostView from "@root/components/PostView";
+
+export const metadata = {
+  title: "Söze",
+  date: "2020-11-29",
+  summary:
+    "Hardware mods for my PC, with a suite of software services to make it all run smoothly. The mods include an LCD mounted on the front and a strip of RGB LEDs inside, all driven by a Raspberry Pi Zero.",
+  banner: "/assets/soze/banner.png",
+  links: {
+    Code: "https://github.com/LucasPickering/soze",
+  },
+  tags: ["post", "project", "python", "typescript", "hardware"],
+};
 
 ## Background
 
@@ -91,3 +91,7 @@ When developing and running this on my desktop/laptop, obviously the expected ha
 ## In Conclusion
 
 So that's like... everything. Hope it was interesting? All the code is [on GitHub](https://github.com/LucasPickering/soze) (the hardware is not). It's taken many years of tweaking but I'm very happy with where this setup is now. I'm sure I'll continue to work on it in the future (currently I'm working on porting chunks of the software to Rust for fun), so it's only going to get better.
+
+export default ({ children }) => (
+  <PostView metadata={metadata}>{children}</PostView>
+);

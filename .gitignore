@@ -1,7 +1,9 @@
+dist/
 node_modules/
 out/
 .next/
 next-env.d.ts
+.vscode/
 
 # misc
 .DS_Store
