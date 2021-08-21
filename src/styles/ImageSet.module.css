@@ -1,0 +1,7 @@
+.imageSet {
+  display: grid;
+  grid-gap: 16px;
+  grid-auto-flow: column;
+
+  width: 100%;
+}

@@ -17,7 +17,7 @@
 .footer {
   display: flex;
   justify-content: center;
-  margin-top: auto;
+  margin-top: 20px;
   padding-bottom: 8px;
 
   font-size: 1.4rem;

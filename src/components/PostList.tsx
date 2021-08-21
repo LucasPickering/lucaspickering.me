@@ -20,7 +20,7 @@ const PostList: React.FC<Props> = ({ posts }) => (
           </span>
         </div>
         <img className={styles.banner} src={post.metadata.banner} />
-        <p>{post.metadata.summary}</p>
+        <p className={styles.postSummary}>{post.metadata.summary}</p>
       </div>
     ))}
   </>
