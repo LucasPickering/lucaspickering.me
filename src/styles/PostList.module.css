@@ -15,3 +15,7 @@
   height: 180px;
   object-fit: cover;
 }
+
+.postSummary {
+  margin-bottom: 0;
+}

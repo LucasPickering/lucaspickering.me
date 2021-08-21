@@ -29,8 +29,10 @@
 
 .otherLinks {
   margin-top: 8px;
-}
-
-.otherLinks > :not(:first-child) {
-  margin-left: 16px;
+  display: grid;
+  grid-gap: 16px;
+  grid-auto-flow: column;
+  /* display: inline-flex;
+  justify-content: space-between;
+  width: 100%; */
 }
