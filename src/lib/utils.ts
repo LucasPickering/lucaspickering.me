@@ -1,9 +1,11 @@
 const dateFormat = new Intl.DateTimeFormat(undefined, {
   dateStyle: "medium",
+  // Dates are TZ-naïve, which means they default to UTC. We want to render them
+  // in UTC so they match the initial value
+  timeZone: "UTC",
 });
 
 export function formatDate(date: string | Date): string {
-  // TODO fix TZ bug here
   const dateObj = typeof date === "string" ? new Date(date) : date;
   return dateFormat.format(dateObj);
 }
