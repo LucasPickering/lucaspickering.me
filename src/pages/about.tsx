@@ -1,6 +1,6 @@
 import React from "react";
 import PageContainer from "@root/components/PageContainer";
-import ImageSet from "@root/components/ImageSet";
+import Images from "@root/components/Images";
 
 const AboutPage: React.FC = () => (
   <PageContainer>
@@ -10,8 +10,12 @@ const AboutPage: React.FC = () => (
       site is where I dump a lot of my projects and photos. Check out my GitHub
       for more of my projects or contact info.
     </p>
-    <ImageSet
-      images={[{ src: "/assets/me/yo.jpg" }, { src: "/assets/me/ye.jpg" }]}
+    <Images
+      images={[
+        "lucaspickering.me/about/yo_jbscrb",
+        "lucaspickering.me/about/ye_lpajcg",
+      ]}
+      caption="How majestic"
     />
   </PageContainer>
 );

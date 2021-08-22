@@ -1,55 +1,41 @@
-import fs from "fs";
-import matter from "gray-matter";
-import path from "path";
 import { compare } from "./utils";
-
-const postsDirectory = "src/_posts";
+import * as posts from "@root/pages/posts";
 
 export interface Post {
-  metadata: RawPost["metadata"];
   slug: string;
-  markdown: string;
-}
-
-interface RawPost {
   metadata: {
     title: string;
-    date: Date;
+    date: string;
     summary: string;
     banner: string;
     tags: string[];
     links?: Record<string, string>;
   };
-  default: string;
 }
 
-export function getPostSlugs(): string[] {
-  return fs.readdirSync(postsDirectory).map((file) => path.parse(file).name);
-}
-
-export async function getPostBySlug(slug: string): Promise<Post> {
-  const raw = fs.readFileSync(path.join(postsDirectory, `${slug}.md`));
-  const { data: metadata, content: markdown } = matter(raw);
-
-  return {
-    metadata: metadata as Post["metadata"],
-    slug,
-    markdown,
-  };
-}
-
-export async function getPostsByTag(tag: string): Promise<Post[]> {
-  const allPosts = await getAllPosts();
-  return allPosts.filter((post) => post.metadata.tags.includes(tag));
-}
-
-export async function getAllPosts(): Promise<Post[]> {
-  const posts = await Promise.all(
-    getPostSlugs().map((slug) => getPostBySlug(slug))
+export function getAllPosts(): Post[] {
+  return (
+    Object.entries(posts)
+      .map(([key, post]) => ({
+        slug: generateSlug(key),
+        // This is a dangerous coercion but who cares
+        metadata: post.metadata as Post["metadata"],
+      }))
+      // Always sort posts by date, *descending*
+      .sort(
+        (post1, post2) => -compare(post1.metadata.date, post2.metadata.date)
+      )
   );
-  // Always sort posts by date, *descending*
-  posts.sort(
-    (post1, post2) => -compare(post1.metadata.date, post2.metadata.date)
-  );
-  return posts;
+}
+
+export function getPostsByTag(tag: string): Post[] {
+  return getAllPosts().filter((post) => post.metadata.tags.includes(tag));
+}
+
+/**
+ * Generate a kebab case slug for a post, based on its camel case unique key
+ */
+function generateSlug(key: string): string {
+  // https://gist.github.com/nblackburn/875e6ff75bc8ce171c758bf75f304707
+  return key.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, "$1-$2").toLowerCase();
 }

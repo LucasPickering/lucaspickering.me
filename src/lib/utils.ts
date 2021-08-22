@@ -1,26 +1,13 @@
-import React from "react";
-import rehypeReact from "rehype-react";
-import remarkParse from "remark-parse";
-import remark2rehype from "remark-rehype";
-import { unified } from "unified";
-import Image from "@root/components/Image";
-
-const processor = unified()
-  .use(remarkParse)
-  .use(remark2rehype)
-  .use(rehypeReact, {
-    createElement: React.createElement,
-    components: {
-      img: Image,
-    },
-  });
-
-export const dateFormat = new Intl.DateTimeFormat(undefined, {
+const dateFormat = new Intl.DateTimeFormat(undefined, {
   dateStyle: "medium",
+  // Dates are TZ-naïve, which means they default to UTC. We want to render them
+  // in UTC so they match the initial value
+  timeZone: "UTC",
 });
 
-export function markdownToReact(markdown: string): React.ReactElement {
-  return processor.processSync(markdown).result as React.ReactElement;
+export function formatDate(date: string | Date): string {
+  const dateObj = typeof date === "string" ? new Date(date) : date;
+  return dateFormat.format(dateObj);
 }
 
 export function compare<T>(value1: T, value2: T): number {
@@ -31,4 +18,8 @@ export function compare<T>(value1: T, value2: T): number {
     return 1;
   }
   return 0;
+}
+
+export function toArray<T>(value: T | T[]): T[] {
+  return Array.isArray(value) ? value : [value];
 }

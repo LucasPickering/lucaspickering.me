@@ -1,6 +1,6 @@
 import styles from "@root/styles/NavHeader.module.css";
 
-const NavHeader: React.FC = ({ children }) => (
+const NavHeader: React.FC = () => (
   <header className={styles.navHeader}>
     <nav className={styles.navBar}>
       {/* Home link */}
