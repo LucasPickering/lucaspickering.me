@@ -1,5 +1,11 @@
 .postHeader {
-  margin: 24px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.postHeader.fullscreen {
+  height: 100vh;
 }
 
 .postHeader h1 {
@@ -12,16 +18,21 @@
 
 .postLinks {
   display: flex;
+  column-gap: 16px;
   margin: 16px 0;
   font-size: 2rem;
-}
-
-.postLinks > :not(:first-child) {
-  margin-left: 16px;
 }
 
 .banner {
   width: 100%;
   height: 300px;
   object-fit: cover;
+}
+
+.fullscreen .banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1000;
+  height: 100%;
 }

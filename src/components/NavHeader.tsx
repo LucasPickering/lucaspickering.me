@@ -1,7 +1,12 @@
 import styles from "@root/styles/NavHeader.module.css";
+import clsx from "clsx";
 
-const NavHeader: React.FC = () => (
-  <header className={styles.navHeader}>
+interface Props {
+  overlay?: boolean;
+}
+
+const NavHeader: React.FC<Props> = ({ overlay = false }) => (
+  <header className={clsx(styles.navHeader, overlay && styles.overlay)}>
     <nav className={styles.navBar}>
       {/* Home link */}
       <div className={styles.titleLinkWrapper}>

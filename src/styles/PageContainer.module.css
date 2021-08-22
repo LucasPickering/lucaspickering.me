@@ -1,9 +1,8 @@
 .contentWrapper {
-  width: min(800px, 100%);
   margin: 0 24px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 /* Main */

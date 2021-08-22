@@ -2,7 +2,7 @@ import React from "react";
 import { GetStaticProps } from "next";
 import { getPostsByTag, Post } from "@root/lib/api";
 import PageContainer from "@root/components/PageContainer";
-import PostList from "@root/components/PostList";
+import PostList from "@root/components/post/PostList";
 
 interface Props {
   posts: Post[];

@@ -2,9 +2,21 @@
   width: 100%;
 }
 
+.navHeader.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  padding: 0 24px 4px 24px;
+  box-sizing: border-box; /* This makes the padding not overflow the parent */
+
+  /* Fade out background within the bottom padding space */
+  background: linear-gradient(#333c, calc(100% - 4px), #3330);
+}
+
 .navBar {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
 
@@ -28,8 +40,7 @@
 }
 
 .otherLinks {
-  margin-top: 8px;
-  display: grid;
-  grid-gap: 16px;
-  grid-auto-flow: column;
+  /* margin-top: 8px; */
+  display: flex;
+  column-gap: 16px;
 }

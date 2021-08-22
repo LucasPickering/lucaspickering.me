@@ -8,6 +8,7 @@ export interface Post {
     date: string;
     summary: string;
     banner: string;
+    fullscreenIntro?: boolean;
     tags: string[];
     links?: Record<string, string>;
   };
