@@ -43,8 +43,8 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
             showFullscreenBanner && styles.fullscreen
           )}
         >
-          <h1>{metadata.title}</h1>
-          <p>{metadata.summary}</p>
+          <h1 className={styles.postTitle}>{metadata.title}</h1>
+          <p className={styles.postSummary}>{metadata.summary}</p>
           <span className={styles.postDate}>{formatDate(metadata.date)}</span>
           <div className={styles.postLinks}>
             {metadata.links &&

@@ -8,8 +8,13 @@
   height: 100vh;
 }
 
-.postHeader h1 {
+.postTitle {
   margin: 0;
+}
+
+.postSummary {
+  font-size: 2rem;
+  margin: 12px 0;
 }
 
 .postDate {
