@@ -1,5 +1,9 @@
 name: Build and Deploy
 
+env:
+  # Should match what's in .nvmrc
+  NODE_VERSION: "16.5.0"
+
 on:
   push:
     branches:
@@ -7,35 +11,22 @@ on:
   pull_request:
 
 jobs:
-  lint:
-    name: "Lint code"
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          lfs: true
-
-      - name: Install npm dependencies
-        run: npm install
-
-      - name: Lint
-        run: npm run lint
-
   build:
-    name: "Build site"
+    name: Build site
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
         with:
-          lfs: true
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
 
       - name: Cache Dependencies
         uses: actions/cache@v2
         with:
           path: |
-            ${{ github.workspace }}/node_modules
             ${{ github.workspace }}/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]sx?') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
@@ -44,6 +35,9 @@ jobs:
 
       - name: Install npm dependencies
         run: npm install
+
+      - name: Lint
+        run: npm run lint
 
       - name: Build
         run: npm run build
@@ -56,12 +50,11 @@ jobs:
           path: out
 
   deploy:
-    name: "Deploy site"
+    name: Deploy site
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     needs:
       - build
-      - lint
     steps:
       - name: Download build artifact
         id: download
