@@ -7,6 +7,7 @@ import PageContainer from "../PageContainer";
 import ImageOpt from "../ImageOpt";
 import Narrow from "../Narrow";
 import clsx from "clsx";
+import { useCloudinary } from "@root/lib/useCloudinary";
 
 interface Props {
   metadata: Post["metadata"];
@@ -16,10 +17,24 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
   // Only photo essays should show the fancy banner
   const showFullscreenBanner = metadata.fullscreenIntro ?? false;
 
+  // Get a scaled down version of the banner, for previews and such
+  const cloudinary = useCloudinary();
+  const bannerSrc = cloudinary.url(metadata.banner, {
+    // 1200x627 is recommended size for previews
+    width: 1200,
+    height: 627,
+    crop: "fill",
+  });
+
   return (
     <PageContainer wide={showFullscreenBanner}>
       <Head>
         <title>{metadata.title} | Lucas Pickering</title>
+        <meta name="description" content={metadata.summary} />
+        <meta name="og:title" content={metadata.title} />
+        <meta name="og:image" content={bannerSrc} />
+        <meta name="og:description" content={metadata.summary} />
+        {/* TODO og:url */}
       </Head>
       <article>
         <header
@@ -29,8 +44,8 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
           )}
         >
           <h1>{metadata.title}</h1>
-          <span className={styles.postDate}>{formatDate(metadata.date)}</span>
           <p>{metadata.summary}</p>
+          <span className={styles.postDate}>{formatDate(metadata.date)}</span>
           <div className={styles.postLinks}>
             {metadata.links &&
               Object.entries(metadata.links).map(([key, href]) => (
