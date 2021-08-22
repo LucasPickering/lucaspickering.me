@@ -1,0 +1,16 @@
+.imagesWrapper {
+  margin: 24px 0;
+}
+
+.images {
+  display: grid;
+  grid-gap: 16px;
+  grid-auto-flow: column;
+
+  width: 100%;
+}
+
+.caption {
+  font-style: italic;
+  margin-top: 4px;
+}

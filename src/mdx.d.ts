@@ -3,7 +3,7 @@
 
 declare module "*.mdx" {
   import { ComponentType } from "react";
-  export const metadata: object | undefined;
+  export const metadata: Record<string, unknown> | undefined;
   const MDXComponent: ComponentType;
   export default MDXComponent;
 }

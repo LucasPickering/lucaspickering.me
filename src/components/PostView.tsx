@@ -4,16 +4,11 @@ import PageContainer from "./PageContainer";
 import styles from "@root/styles/PostView.module.css";
 import { formatDate } from "@root/lib/utils";
 import Head from "next/head";
-import { MDXProvider } from "@mdx-js/react";
-import Image from "./Image";
+import ImageOpt from "./ImageOpt";
 
 interface Props {
   metadata: Post["metadata"];
 }
-
-const mdxComponents = {
-  img: Image,
-};
 
 const PostView: React.FC<Props> = ({ metadata, children }) => (
   <PageContainer>
@@ -33,10 +28,8 @@ const PostView: React.FC<Props> = ({ metadata, children }) => (
             </a>
           ))}
       </div>
-      <img className={styles.banner} src={metadata.banner} />
-      <MDXProvider components={mdxComponents}>
-        <div>{children}</div>
-      </MDXProvider>
+      <ImageOpt className={styles.banner} publicId={metadata.banner} />
+      <div>{children}</div>
     </article>
   </PageContainer>
 );

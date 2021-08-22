@@ -17,3 +17,7 @@ export function compare<T>(value1: T, value2: T): number {
   }
   return 0;
 }
+
+export function toArray<T>(value: T | T[]): T[] {
+  return Array.isArray(value) ? value : [value];
+}
