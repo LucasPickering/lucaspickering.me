@@ -1,9 +1,10 @@
 .contentWrapper {
-  width: min(800px, 100%);
   margin: 0 24px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+
+  width: 100%;
+  height: 100%; /* Needed so the footer can go to the bottom */
 }
 
 /* Main */

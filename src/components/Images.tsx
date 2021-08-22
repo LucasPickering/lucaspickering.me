@@ -10,14 +10,14 @@ interface Props {
 }
 
 const Images = ({ caption, images }: Props): React.ReactElement => (
-  <div className={styles.imagesWrapper}>
+  <figure className={styles.imagesWrapper}>
     <div className={styles.images}>
       {toArray(images).map((publicId) => (
         <ImageOpt key={publicId} publicId={publicId} />
       ))}
     </div>
-    {caption && <div className={styles.caption}>{caption}</div>}
-  </div>
+    {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
+  </figure>
 );
 
 export default Images;

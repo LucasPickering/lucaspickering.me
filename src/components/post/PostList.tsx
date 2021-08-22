@@ -2,7 +2,7 @@ import { formatDate } from "@root/lib/utils";
 import React from "react";
 import { Post } from "@root/lib/api";
 import styles from "@root/styles/PostList.module.css";
-import ImageOpt from "./ImageOpt";
+import ImageOpt from "../ImageOpt";
 
 interface Props {
   posts: Post[];
