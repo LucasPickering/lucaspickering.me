@@ -1,7 +1,8 @@
 import React from "react";
 import { toArray } from "@root/lib/utils";
 import ImageOpt from "./ImageOpt";
-import styles from "@root/styles/Images.module.css";
+import styles from "@root/styles/Gallery.module.scss";
+import clsx from "clsx";
 
 interface Props {
   caption?: string;
@@ -9,9 +10,13 @@ interface Props {
   images: string | string[];
 }
 
-const Images = ({ caption, images }: Props): React.ReactElement => (
-  <figure className={styles.imagesWrapper}>
-    <div className={styles.images}>
+/**
+ * A collection of images, with an optional caption. Multiple images in one
+ * gallery will be tiled.
+ */
+const Gallery = ({ caption, images }: Props): React.ReactElement => (
+  <figure className={clsx(styles.gallery)}>
+    <div className={styles.galleryInternal}>
       {toArray(images).map((publicId) => (
         <ImageOpt key={publicId} publicId={publicId} />
       ))}
@@ -20,4 +25,4 @@ const Images = ({ caption, images }: Props): React.ReactElement => (
   </figure>
 );
 
-export default Images;
+export default Gallery;

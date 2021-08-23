@@ -8,7 +8,10 @@ export interface Post {
     date: string;
     summary: string;
     banner: string;
-    fullscreenIntro?: boolean;
+    /**
+     * Should images be shown in larger format? Useful for photo posts
+     */
+    isGallery?: boolean;
     tags: string[];
     links?: Record<string, string>;
   };

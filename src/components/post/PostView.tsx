@@ -1,11 +1,10 @@
 import React from "react";
 import Head from "next/head";
 import { Post } from "@root/lib/api";
-import styles from "@root/styles/PostView.module.css";
+import styles from "@root/styles/PostView.module.scss";
 import { formatDate } from "@root/lib/utils";
 import PageContainer from "../PageContainer";
 import ImageOpt from "../ImageOpt";
-import Narrow from "../Narrow";
 import clsx from "clsx";
 import { useCloudinary } from "@root/lib/useCloudinary";
 
@@ -14,8 +13,8 @@ interface Props {
 }
 
 const PostView: React.FC<Props> = ({ metadata, children }) => {
-  // Only photo essays should show the fancy banner
-  const showFullscreenBanner = metadata.fullscreenIntro ?? false;
+  // Only photo essays should show large-format photos
+  const isGallery = metadata.isGallery ?? false;
 
   // Get a scaled down version of the banner, for previews and such
   const cloudinary = useCloudinary();
@@ -27,7 +26,11 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
   });
 
   return (
-    <PageContainer wide={showFullscreenBanner}>
+    <PageContainer
+      // Use a *global* class here, so all our children can look for it
+      className={clsx(isGallery && "gallery")}
+      isGallery={isGallery}
+    >
       <Head>
         <title>{metadata.title} | Lucas Pickering</title>
         <meta name="description" content={metadata.summary} />
@@ -37,12 +40,7 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
         {/* TODO og:url */}
       </Head>
       <article>
-        <header
-          className={clsx(
-            styles.postHeader,
-            showFullscreenBanner && styles.fullscreen
-          )}
-        >
+        <header className={styles.postHeader}>
           <h1 className={styles.postTitle}>{metadata.title}</h1>
           <p className={styles.postSummary}>{metadata.summary}</p>
           <span className={styles.postDate}>{formatDate(metadata.date)}</span>
@@ -56,16 +54,10 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
           </div>
 
           {/* Banner image goes under the header content */}
-          <ImageOpt
-            className={clsx(
-              styles.banner,
-              showFullscreenBanner && styles.fullscreen
-            )}
-            publicId={metadata.banner}
-          />
+          <ImageOpt className={styles.banner} publicId={metadata.banner} />
         </header>
 
-        <Narrow>{children}</Narrow>
+        <div className={styles.postBody}>{children}</div>
       </article>
     </PageContainer>
   );

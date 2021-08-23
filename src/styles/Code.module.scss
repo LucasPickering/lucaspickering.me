@@ -1,0 +1,10 @@
+@use './colors.scss';
+
+.code {
+  // TODO fix x scroll around code blocks
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  background-color: colors.$color-background-dark;
+  padding: 8px;
+}

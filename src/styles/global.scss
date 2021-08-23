@@ -1,3 +1,5 @@
+@use './colors.scss';
+
 /* CSS related to the page as a whole */
 
 html {
@@ -13,7 +15,7 @@ html {
 body {
   height: 100%;
   margin: 0;
-  background-color: #212930;
+  background-color: colors.$color-background;
   color: white;
   font-size: 1.6rem;
 }
@@ -37,7 +39,7 @@ h6 {
   font-size: 1.2rem;
 }
 a {
-  color: #5dabc1;
+  color: colors.$color-primary;
   text-decoration: none;
 }
 a:hover {

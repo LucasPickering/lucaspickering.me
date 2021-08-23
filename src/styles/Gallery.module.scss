@@ -1,0 +1,30 @@
+.gallery {
+  /* Make us _not_ fill parent width. Width will be determined by the images */
+  display: block;
+  margin: 24px 0; /* Note: these margins don't collapse because parent is flex */
+  width: 100%;
+}
+
+/* The .gallery class comes from a distant parent, and tells us that we're allowed
+to go super wide if we want. This selector is a bit hacky but who cares? */
+:global(.gallery) .gallery {
+  /* On large screens, let's make pics a bit wider. Otherwise, we'll rely on
+  the width restriction applied by the parent. */
+  @media (min-width: 1200px) {
+    width: 1100px;
+  }
+}
+
+.galleryInternal {
+  display: grid;
+  grid-auto-flow: column;
+  grid-gap: 8px;
+  justify-items: center;
+
+  width: 100%;
+}
+
+.caption {
+  font-style: italic;
+  margin-top: 4px;
+}
