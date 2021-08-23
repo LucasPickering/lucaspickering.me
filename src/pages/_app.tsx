@@ -19,7 +19,7 @@ export default function App<P>({
     <CloudinaryContext cloudName={cloudinaryCloudName} includeOwnBody>
       <Head>
         <title>Lucas Pickering</title>
-        <meta name="theme-color" content="#383838" />
+        <meta name="theme-color" content="#212930" />
         <meta name="color-scheme" content="dark" />
         <meta name="description" content="Me!" />
       </Head>
