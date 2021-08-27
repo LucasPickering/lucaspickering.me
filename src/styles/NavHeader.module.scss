@@ -1,3 +1,5 @@
+@use './colors.scss';
+
 .navHeader {
   width: 100%;
 }
@@ -9,7 +11,7 @@
 
   padding: 0 24px;
   box-sizing: border-box; /* This makes the padding not overflow the parent */
-  background-color: #212930e0;
+  background-color: rgba(colors.$color-background, 0.8);
 }
 
 .navBar {

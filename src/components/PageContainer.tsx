@@ -1,24 +1,34 @@
-import styles from "@root/styles/PageContainer.module.css";
 import NavHeader from "./NavHeader";
-import Narrow from "./Narrow";
+import clsx from "clsx";
+import styles from "@root/styles/PageContainer.module.scss";
+import stylesUtils from "@root/styles/utils.module.scss";
 
 interface Props {
-  wide?: boolean;
+  className?: string;
+  isGallery?: boolean;
 }
 
-const PageContainer: React.FC<Props> = ({ wide = false, children }) => (
-  <Narrow enabled={!wide}>
-    <div className={styles.contentWrapper}>
-      <NavHeader overlay={wide} />
+const PageContainer: React.FC<Props> = ({
+  className,
+  isGallery = false,
+  children,
+}) => (
+  <div
+    className={clsx(
+      className,
+      styles.contentWrapper,
+      !isGallery && stylesUtils.narrow
+    )}
+  >
+    <NavHeader overlay={isGallery} />
 
-      <main className={styles.mainContent}>{children}</main>
+    <main className={styles.mainContent}>{children}</main>
 
-      <footer className={styles.footer}>
-        <span>Copyright 2021 Lucas Pickering</span>
-        <a href="/">Recursion!</a>
-      </footer>
-    </div>
-  </Narrow>
+    <footer className={styles.footer}>
+      <span>Copyright 2021 Lucas Pickering</span>
+      <a href="/">Recursion!</a>
+    </footer>
+  </div>
 );
 
 export default PageContainer;

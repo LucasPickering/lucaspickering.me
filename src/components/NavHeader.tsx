@@ -1,4 +1,4 @@
-import styles from "@root/styles/NavHeader.module.css";
+import styles from "@root/styles/NavHeader.module.scss";
 import clsx from "clsx";
 
 interface Props {

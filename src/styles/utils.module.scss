@@ -1,0 +1,9 @@
+// A mixin for any element that should be limited to the "center column" layout.
+// This has to be a mixin because PostView applies it to its children dynamically.
+@mixin narrow {
+  width: min(800px, 100%);
+}
+
+.narrow {
+  @include narrow;
+}
