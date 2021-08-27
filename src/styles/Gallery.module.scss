@@ -1,6 +1,9 @@
 .gallery {
   /* Make us _not_ fill parent width. Width will be determined by the images */
-  display: block;
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 8px;
+
   margin: 24px 0; /* Note: these margins don't collapse because parent is flex */
   width: 100%;
 }
@@ -10,21 +13,15 @@ to go super wide if we want. This selector is a bit hacky but who cares? */
 :global(.gallery) .gallery {
   /* On large screens, let's make pics a bit wider. Otherwise, we'll rely on
   the width restriction applied by the parent. */
-  @media (min-width: 1200px) {
-    width: 1100px;
+  @media (min-width: 1240px) {
+    width: 1200px;
   }
-}
-
-.galleryInternal {
-  display: grid;
-  grid-auto-flow: column;
-  grid-gap: 8px;
-  justify-items: center;
-
-  width: 100%;
 }
 
 .caption {
   font-style: italic;
   margin-top: 4px;
+
+  // Take up an entire row. This will ensure the caption always gets its own row
+  grid-column: 1 / -1;
 }
