@@ -16,6 +16,7 @@ const AboutPage: React.FC = () => (
         "lucaspickering.me/about/ye_lpajcg",
       ]}
       caption="How majestic"
+      columns={2}
     />
   </PageContainer>
 );

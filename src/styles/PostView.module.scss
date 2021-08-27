@@ -6,8 +6,8 @@
   justify-content: flex-end;
 }
 
-:global(.gallery) .postHeader {
-  height: 100vh;
+.headerText {
+  margin: 24px 0;
 }
 
 .postTitle {
@@ -36,12 +36,21 @@
   object-fit: cover;
 }
 
-:global(.gallery) .banner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1000;
-  height: 100%;
+// Styles that get applied if the post is a "gallery", which puts more of a
+// focus on the images than the text.
+:global(.gallery) {
+  .postHeader {
+    height: 100vh;
+  }
+
+  .banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1000;
+    height: 100%; // Fill the whole screen
+    margin: 0;
+  }
 }
 
 .postBody > * {

@@ -10,21 +10,24 @@ interface Props {
 
 const PostList: React.FC<Props> = ({ posts }) => (
   <>
-    {posts.map((post) => (
-      <div key={post.slug}>
-        <div className={styles.postTitleGroup}>
-          <h3 className={styles.postTitle}>
-            <a href={`/posts/${post.slug}`}>{post.metadata.title}</a>
-          </h3>
-          <span className={styles.postDate}>
-            {formatDate(post.metadata.date)}
-          </span>
-        </div>
+    {posts
+      // Filter out hidden posts
+      .filter((post) => !post.metadata.hidden)
+      .map((post) => (
+        <div key={post.slug}>
+          <div className={styles.postTitleGroup}>
+            <h3 className={styles.postTitle}>
+              <a href={`/posts/${post.slug}`}>{post.metadata.title}</a>
+            </h3>
+            <span className={styles.postDate}>
+              {formatDate(post.metadata.date)}
+            </span>
+          </div>
 
-        <ImageOpt className={styles.banner} publicId={post.metadata.banner} />
-        <p className={styles.postSummary}>{post.metadata.summary}</p>
-      </div>
-    ))}
+          <ImageOpt className={styles.banner} publicId={post.metadata.banner} />
+          <p className={styles.postSummary}>{post.metadata.summary}</p>
+        </div>
+      ))}
   </>
 );
 

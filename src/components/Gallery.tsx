@@ -5,7 +5,9 @@ import styles from "@root/styles/Gallery.module.scss";
 import clsx from "clsx";
 
 interface Props {
+  className?: string;
   caption?: string;
+  columns?: number;
   // Should be cloudinary public IDs. Support a single image, for convenience
   images: string | string[];
 }
@@ -14,13 +16,19 @@ interface Props {
  * A collection of images, with an optional caption. Multiple images in one
  * gallery will be tiled.
  */
-const Gallery = ({ caption, images }: Props): React.ReactElement => (
-  <figure className={clsx(styles.gallery)}>
-    <div className={styles.galleryInternal}>
-      {toArray(images).map((publicId) => (
-        <ImageOpt key={publicId} publicId={publicId} />
-      ))}
-    </div>
+const Gallery = ({
+  className,
+  caption,
+  columns = 1,
+  images,
+}: Props): React.ReactElement => (
+  <figure
+    className={clsx(styles.gallery, className)}
+    style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
+  >
+    {toArray(images).map((publicId) => (
+      <ImageOpt key={publicId} publicId={publicId} />
+    ))}
     {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
   </figure>
 );

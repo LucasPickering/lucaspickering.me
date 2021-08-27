@@ -13,6 +13,10 @@ export interface Post {
      */
     isGallery?: boolean;
     tags: string[];
+    /**
+     * If true, the post will be hidden from lists (for unpublished posts)
+     */
+    hidden?: boolean;
     links?: Record<string, string>;
   };
 }

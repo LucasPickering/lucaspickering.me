@@ -4,6 +4,7 @@ out/
 .next/
 next-env.d.ts
 .vscode/
+public/assets/temp/
 
 # misc
 .DS_Store

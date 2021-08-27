@@ -41,19 +41,21 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
       </Head>
       <article>
         <header className={styles.postHeader}>
-          <h1 className={styles.postTitle}>{metadata.title}</h1>
-          <p className={styles.postSummary}>{metadata.summary}</p>
-          <span className={styles.postDate}>{formatDate(metadata.date)}</span>
-          <div className={styles.postLinks}>
-            {metadata.links &&
-              Object.entries(metadata.links).map(([key, href]) => (
-                <a key={key} href={href}>
-                  {key}
-                </a>
-              ))}
+          <div className={styles.headerText}>
+            <h1 className={styles.postTitle}>{metadata.title}</h1>
+            <p className={styles.postSummary}>{metadata.summary}</p>
+            <span className={styles.postDate}>{formatDate(metadata.date)}</span>
+            {metadata.links && (
+              <div className={styles.postLinks}>
+                {Object.entries(metadata.links).map(([key, href]) => (
+                  <a key={key} href={href}>
+                    {key}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Banner image goes under the header content */}
           <ImageOpt className={styles.banner} publicId={metadata.banner} />
         </header>
 
