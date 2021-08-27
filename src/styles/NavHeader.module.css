@@ -7,11 +7,9 @@
   left: 0;
   top: 0;
 
-  padding: 0 24px 4px 24px;
+  padding: 0 24px;
   box-sizing: border-box; /* This makes the padding not overflow the parent */
-
-  /* Fade out background within the bottom padding space */
-  background: linear-gradient(#333c, calc(100% - 4px), #3330);
+  background-color: #212930e0;
 }
 
 .navBar {
