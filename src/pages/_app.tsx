@@ -20,8 +20,6 @@ export default function App<P>({
   pageProps,
 }: Props<P>): React.ReactElement {
   return (
-    // TODO can we use MDXProvider to auto-provide layout and Images import?
-
     <MDXProvider components={components}>
       <CloudinaryContext cloudName={cloudinaryCloudName} includeOwnBody secure>
         <Head>

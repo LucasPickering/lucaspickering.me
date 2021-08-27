@@ -1,6 +1,6 @@
 import React from "react";
 import PageContainer from "@root/components/PageContainer";
-import Gallery from "@root/components/Gallery";
+import Images from "@root/components/Images";
 
 const AboutPage: React.FC = () => (
   <PageContainer>
@@ -10,7 +10,7 @@ const AboutPage: React.FC = () => (
       site is where I dump a lot of my projects and photos. Check out my GitHub
       for more of my projects or contact info.
     </p>
-    <Gallery
+    <Images
       images={[
         "lucaspickering.me/about/yo_jbscrb",
         "lucaspickering.me/about/ye_lpajcg",
