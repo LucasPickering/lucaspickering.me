@@ -1,4 +1,4 @@
-.gallery {
+.images {
   /* Make us _not_ fill parent width. Width will be determined by the images */
   display: grid;
   grid-auto-flow: row;
@@ -10,7 +10,7 @@
 
 /* The .gallery class comes from a distant parent, and tells us that we're allowed
 to go super wide if we want. This selector is a bit hacky but who cares? */
-:global(.gallery) .gallery {
+:global(.gallery) .images {
   /* On large screens, let's make pics a bit wider. Otherwise, we'll rely on
   the width restriction applied by the parent. */
   @media (min-width: 1240px) {

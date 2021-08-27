@@ -1,4 +1,4 @@
-import Gallery from "@root/components/Gallery";
+import Images from "@root/components/Images";
 import PostView from "@root/components/post/PostView";
 
 export const metadata = {
@@ -36,7 +36,7 @@ We start by defining an elevation for each tile, using a [Perlin noise function]
 
 At this point, our terrain map looks something like this, where each tile has an elevation defined, but nothing else.
 
-<Gallery
+<Images
   images="lucaspickering.me/terra/elevation_af9kpl"
   caption="The red tiles are the highest elevation while the white tiles are the lowest."
 />
@@ -47,7 +47,7 @@ Without going into too much detail, as this logic is subject to change, we simul
 
 At this point, each land tile will have some amount of rainfall assigned to it, which will be a function of its proximity to the ocean plus proximity to mountains and other elevation features. From here we can move onto the next step, which is simulating how that water flows and collects.
 
-<Gallery
+<Images
   images="lucaspickering.me/terra/humidity_qliycy"
   caption="The green tiles are the get the most rainfall while the white are the driest."
 />
@@ -63,7 +63,7 @@ For each tile, we track two things:
 
 Once we have those, we can easily place lakes on tiles that collect a lot of water and rivers on tiles that have high water flow rates. When it's all said and done, here's what our map will look like:
 
-<Gallery
+<Images
   images="lucaspickering.me/terra/runoff_cqbeg5"
   caption="In this map, green represents runoff flow while blue is collected runoff. So the greenest tiles will become rivers, while the bluest will become lakes. Black tiles have little to no runoff flow over them, and gray tiles are ocean."
 />
@@ -76,7 +76,7 @@ Because of the methodology we use to generation elevation and simulate rainfall,
 
 So after all these steps, we end up with our final product!
 
-<Gallery
+<Images
   images="lucaspickering.me/terra/final_w5m4zz"
   caption="Tile color here represents biomes. The darkest green is jungle, the tan is plains, etc."
 />

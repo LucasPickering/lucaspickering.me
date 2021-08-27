@@ -1,7 +1,7 @@
 import React from "react";
 import { toArray } from "@root/lib/utils";
 import ImageOpt from "./ImageOpt";
-import styles from "@root/styles/Gallery.module.scss";
+import styles from "@root/styles/Images.module.scss";
 import clsx from "clsx";
 
 interface Props {
@@ -14,16 +14,16 @@ interface Props {
 
 /**
  * A collection of images, with an optional caption. Multiple images in one
- * gallery will be tiled.
+ * set will be tiled.
  */
-const Gallery = ({
+const Images = ({
   className,
   caption,
   columns = 1,
   images,
 }: Props): React.ReactElement => (
   <figure
-    className={clsx(styles.gallery, className)}
+    className={clsx(styles.images, className)}
     style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
   >
     {toArray(images).map((publicId) => (
@@ -33,4 +33,4 @@ const Gallery = ({
   </figure>
 );
 
-export default Gallery;
+export default Images;
