@@ -3,10 +3,10 @@ import Head from "next/head";
 import "@root/styles/global.scss";
 import { CloudinaryContext } from "cloudinary-react";
 import { cloudinaryCloudName } from "@root/lib/useCloudinary";
-import { MDXProvider, MDXProviderComponents } from "@mdx-js/react";
+import { MDXProvider } from "@mdx-js/react";
 import Code from "@root/components/Code";
 
-const components: MDXProviderComponents = {
+const components: React.ComponentProps<typeof MDXProvider>["components"] = {
   code: Code,
 };
 

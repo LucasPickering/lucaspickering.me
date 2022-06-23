@@ -1,6 +1,7 @@
 @use './colors.scss';
 
-.code {
+// Only apply for code *blocks*, not inline code
+pre .code {
   // TODO fix x scroll around code blocks
   display: inline-block;
   max-width: 100%;

@@ -1,6 +1,10 @@
-const withMDX = require("@next/mdx")();
+const withMDX = require("@next/mdx")({
+  extension: /\.mdx?$/,
+  options: { providerImportSource: "@mdx-js/react" },
+});
 
 module.exports = withMDX({
+  reactStrictMode: true,
   pageExtensions: ["tsx", "md", "mdx"],
   trailingSlash: false, // Trailing slash breaks links on GitHub Pages
   eslint: {

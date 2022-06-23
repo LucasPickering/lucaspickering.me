@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -17,10 +21,18 @@
     "jsx": "preserve",
     "baseUrl": "./src",
     "paths": {
-      "@root/*": ["./*"]
+      "@root/*": [
+        "./*"
+      ]
     },
-    "outDir": "dist/"
+    "outDir": "dist/",
+    "incremental": true
   },
-  "include": ["./src", "next-env.d.ts"],
-  "exclude": ["node_modules"]
+  "include": [
+    "./src",
+    "next-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
