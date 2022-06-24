@@ -23,3 +23,20 @@ export function compare<T>(value1: T, value2: T): number {
 export function toArray<T>(value: T | T[]): T[] {
   return Array.isArray(value) ? value : [value];
 }
+
+/**
+ * Check if a value is not null/undefined
+ */
+export function isDefined<T>(value: T): value is NonNullable<T> {
+  return value !== null && value !== undefined;
+}
+
+/**
+ * Assert the given value is defined. Useful as a type guard when you know
+ * something is defined but the typechecker doesn't.
+ */
+export function assertIsDefined<T>(value: T): asserts value is NonNullable<T> {
+  if (!isDefined(value)) {
+    throw new Error(`Expected value to be defined, but was ${value}`);
+  }
+}

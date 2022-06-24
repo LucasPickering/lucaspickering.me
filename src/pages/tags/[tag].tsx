@@ -3,6 +3,7 @@ import { getAllTags, getPostsByTag, Post } from "@root/lib/api";
 import { GetStaticPaths, GetStaticProps } from "next";
 import PageContainer from "@root/components/PageContainer";
 import PostList from "@root/components/post/PostList";
+import { assertIsDefined } from "@root/lib/utils";
 
 interface Props {
   tag: string;
@@ -23,9 +24,13 @@ const PostTagPage: React.FC<Props> = ({ tag, posts }) => (
 export const getStaticProps: GetStaticProps<Props, RouteParams> = ({
   params,
 }) => {
-  const tag = params!.tag;
-  const posts = getPostsByTag(tag);
-  return { props: { tag, posts } };
+  assertIsDefined(params);
+  return {
+    props: {
+      tag: params.tag,
+      posts: getPostsByTag(params.tag),
+    },
+  };
 };
 
 export const getStaticPaths: GetStaticPaths<RouteParams> = () => {
