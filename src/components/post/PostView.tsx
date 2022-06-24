@@ -7,6 +7,7 @@ import PageContainer from "../PageContainer";
 import ImageOpt from "../ImageOpt";
 import clsx from "clsx";
 import { useCloudinary } from "@root/lib/useCloudinary";
+import Link from "next/link";
 
 interface Props {
   metadata: Post["metadata"];
@@ -48,9 +49,9 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
             {metadata.links && (
               <div className={styles.postLinks}>
                 {Object.entries(metadata.links).map(([key, href]) => (
-                  <a key={key} href={href}>
-                    {key}
-                  </a>
+                  <Link key={key} href={href}>
+                    <a>{key}</a>
+                  </Link>
                 ))}
               </div>
             )}

@@ -1,5 +1,6 @@
 import styles from "@root/styles/NavHeader.module.scss";
 import clsx from "clsx";
+import Link from "next/link";
 
 interface Props {
   overlay?: boolean;
@@ -9,15 +10,22 @@ const NavHeader: React.FC<Props> = ({ overlay = false }) => (
   <header className={clsx(styles.navHeader, overlay && styles.overlay)}>
     <nav className={styles.navBar}>
       {/* Home link */}
-      <a className={styles.titleLink} href="/">
-        A Thought
-      </a>
+      <Link href="/">
+        <a className={styles.titleLink}>A Thought</a>
+      </Link>
 
       {/* Other links */}
       <div className={styles.otherLinks}>
-        <a href="/tags/project">Projects</a>
-        <a href="/tags/photo">Photos</a>
-        <a href="/about">About</a>
+        <Link href="/tags/project">
+          <a>Projects</a>
+        </Link>
+        <Link href="/tags/photo">
+          <a>Photos</a>
+        </Link>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
+
         <a href="https://github.com/LucasPickering">GitHub</a>
       </div>
     </nav>

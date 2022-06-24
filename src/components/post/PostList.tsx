@@ -3,6 +3,7 @@ import React from "react";
 import { Post } from "@root/lib/api";
 import styles from "@root/styles/PostList.module.scss";
 import ImageOpt from "../ImageOpt";
+import Link from "next/link";
 
 interface Props {
   posts: Post[];
@@ -17,7 +18,9 @@ const PostList: React.FC<Props> = ({ posts }) => (
         <div key={post.slug}>
           <div className={styles.postTitleGroup}>
             <h3 className={styles.postTitle}>
-              <a href={`/posts/${post.slug}`}>{post.metadata.title}</a>
+              <Link href={`/posts/${post.slug}`}>
+                <a>{post.metadata.title}</a>
+              </Link>
             </h3>
             <span className={styles.postDate}>
               {formatDate(post.metadata.date)}
