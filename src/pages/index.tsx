@@ -28,8 +28,8 @@ const HomePage: React.FC<Props> = ({ posts }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const posts = await getAllPosts();
+export const getStaticProps: GetStaticProps<Props> = () => {
+  const posts = getAllPosts(true);
   return {
     props: {
       posts,

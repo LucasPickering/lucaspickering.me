@@ -15,8 +15,8 @@ const NavHeader: React.FC<Props> = ({ overlay = false }) => (
 
       {/* Other links */}
       <div className={styles.otherLinks}>
-        <a href="/projects">Projects</a>
-        <a href="/photos">Photos</a>
+        <a href="/tags/project">Projects</a>
+        <a href="/tags/photo">Photos</a>
         <a href="/about">About</a>
         <a href="https://github.com/LucasPickering">GitHub</a>
       </div>
