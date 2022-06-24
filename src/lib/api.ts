@@ -21,23 +21,42 @@ export interface Post {
   };
 }
 
-export function getAllPosts(): Post[] {
-  return (
-    Object.entries(posts)
-      .map(([key, post]) => ({
-        slug: generateSlug(key),
-        // This is a dangerous coercion but who cares
-        metadata: post.metadata as Post["metadata"],
-      }))
-      // Always sort posts by date, *descending*
-      .sort(
-        (post1, post2) => -compare(post1.metadata.date, post2.metadata.date)
-      )
-  );
+/**
+ * Get all defined blog posts.
+ */
+export function getAllPosts(sort: boolean = false): Post[] {
+  const rv = Object.entries(posts).map(([key, post]) => ({
+    slug: generateSlug(key),
+    // This is a dangerous coercion but who cares
+    metadata: post.metadata as Post["metadata"],
+  }));
+  if (sort) {
+    // If requested, sort posts by date, *descending*
+    rv.sort(
+      (post1, post2) => -compare(post1.metadata.date, post2.metadata.date)
+    );
+  }
+  return rv;
 }
 
+/**
+ * Get all the unique tags that exist on at least one post.
+ */
+export function getAllTags(): string[] {
+  const uniqueTags: Set<string> = new Set();
+  for (const post of getAllPosts()) {
+    for (const tag of post.metadata.tags) {
+      uniqueTags.add(tag);
+    }
+  }
+  return Array.from(uniqueTags);
+}
+
+/**
+ * Get all the posts that have a particular tag.
+ */
 export function getPostsByTag(tag: string): Post[] {
-  return getAllPosts().filter((post) => post.metadata.tags.includes(tag));
+  return getAllPosts(true).filter((post) => post.metadata.tags.includes(tag));
 }
 
 /**

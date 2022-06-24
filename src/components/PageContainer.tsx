@@ -2,6 +2,7 @@ import NavHeader from "./NavHeader";
 import clsx from "clsx";
 import styles from "@root/styles/PageContainer.module.scss";
 import stylesUtils from "@root/styles/utils.module.scss";
+import Link from "next/link";
 
 interface Props {
   className?: string;
@@ -26,7 +27,9 @@ const PageContainer: React.FC<Props> = ({
 
     <footer className={styles.footer}>
       <span>Copyright 2021 Lucas Pickering</span>
-      <a href="/">Recursion!</a>
+      <Link href="/">
+        <a>Recursion!</a>
+      </Link>
     </footer>
   </div>
 );

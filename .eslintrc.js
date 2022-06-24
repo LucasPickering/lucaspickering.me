@@ -22,6 +22,7 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:@next/next/recommended",
   ],
   globals: {
     Atomics: "readonly",
@@ -41,6 +42,8 @@ module.exports = {
     "react/no-unescaped-entities": ["error", { forbid: ["<", ">"] }],
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/no-autofocus": "off",
+    // We use next's <Link> instead
+    "jsx-a11y/anchor-is-valid": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": ["error", { fixToUnknown: true }],
     "@typescript-eslint/explicit-function-return-type": [
