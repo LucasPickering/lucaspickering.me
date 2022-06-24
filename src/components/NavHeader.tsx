@@ -9,12 +9,9 @@ const NavHeader: React.FC<Props> = ({ overlay = false }) => (
   <header className={clsx(styles.navHeader, overlay && styles.overlay)}>
     <nav className={styles.navBar}>
       {/* Home link */}
-      <div className={styles.titleLinkWrapper}>
-        <a className={styles.titleLink} href="/">
-          A Thought
-        </a>
-        <p className={styles.caption}>(All I could muster)</p>
-      </div>
+      <a className={styles.titleLink} href="/">
+        A Thought
+      </a>
 
       {/* Other links */}
       <div className={styles.otherLinks}>
