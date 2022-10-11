@@ -1,10 +1,15 @@
 @use "./colors.scss";
 
+// Applies to *all* code (block or inline)
 .code {
-  // TODO fix x scroll around code blocks
-  display: inline-block;
+  background-color: colors.$color-background-alternate;
+  padding: 2px;
+  border-radius: 2px;
+}
+
+// Applies only to triple-tick code blocks (not inline)
+pre .code {
   max-width: 100%;
   overflow-x: auto;
-  background-color: colors.$color-background-alternate;
   padding: 8px;
 }
