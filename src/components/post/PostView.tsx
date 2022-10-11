@@ -6,8 +6,9 @@ import { formatDate } from "@root/lib/utils";
 import PageContainer from "../PageContainer";
 import ImageOpt from "../ImageOpt";
 import clsx from "clsx";
-import { useCloudinary } from "@root/lib/useCloudinary";
 import Link from "next/link";
+import { cloudinary } from "@root/lib/cloudinary";
+import { Resize } from "@cloudinary/url-gen/actions";
 
 interface Props {
   metadata: Post["metadata"];
@@ -19,13 +20,11 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
   const isGallery = metadata.isGallery ?? false;
 
   // Get a scaled down version of the banner, for previews and such
-  const cloudinary = useCloudinary();
-  const bannerSrc = cloudinary.url(metadata.banner, {
+  const bannerSrc = cloudinary
+    .image(metadata.banner)
     // 1200x627 is recommended size for previews
-    width: 1200,
-    height: 627,
-    crop: "fill",
-  });
+    .resize(Resize.fill(1200, 627))
+    .toURL();
 
   return (
     <PageContainer
@@ -34,7 +33,8 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
       isGallery={isGallery}
     >
       <Head>
-        <title>{metadata.title} | Lucas Pickering</title>
+        {/* String interpolation is needed to prevent a warning from Next */}
+        <title>{`${metadata.title} | Lucas Pickering`}</title>
         <meta name="description" content={metadata.summary} />
         <meta name="og:title" content={metadata.title} />
         <meta name="og:image" content={bannerSrc} />
@@ -46,7 +46,11 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
           <div className={styles.headerText}>
             <h1 className={styles.postTitle}>{metadata.title}</h1>
             <p className={styles.postSummary}>{metadata.summary}</p>
-            <span className={styles.postDate}>{formatDate(metadata.date)}</span>
+            {metadata.date && (
+              <span className={styles.postDate}>
+                {formatDate(metadata.date)}
+              </span>
+            )}
             {metadata.links && (
               <div className={styles.postLinks}>
                 {Object.entries(metadata.links).map(([key, href]) => (
@@ -58,7 +62,13 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
             )}
           </div>
 
-          <ImageOpt className={styles.banner} publicId={metadata.banner} />
+          <ImageOpt
+            className={styles.banner}
+            sizes="100vw"
+            src={metadata.banner}
+            width={800}
+            height={300}
+          />
         </header>
 
         <div className={styles.postBody}>{children}</div>

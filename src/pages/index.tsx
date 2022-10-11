@@ -1,7 +1,7 @@
 import React from "react";
 import PageContainer from "@root/components/PageContainer";
 import { GetStaticProps } from "next";
-import { getAllPosts, Post } from "@root/lib/api";
+import { getRecentPosts, Post } from "@root/lib/api";
 import PostList from "@root/components/post/PostList";
 
 interface Props {
@@ -29,7 +29,7 @@ const HomePage: React.FC<Props> = ({ posts }) => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = () => {
-  const posts = getAllPosts(true);
+  const posts = getRecentPosts();
   return {
     props: {
       posts,

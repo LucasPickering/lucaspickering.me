@@ -26,8 +26,15 @@ const Images = ({
     className={clsx(styles.images, className)}
     style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
   >
-    {toArray(images).map((publicId) => (
-      <ImageOpt key={publicId} publicId={publicId} />
+    {toArray(images).map((src) => (
+      <ImageOpt
+        key={src}
+        src={src}
+        // TODO fix CLS on this (load dimensions from cloudinary?)
+        width={0}
+        height={0}
+        style={{ width: "100%", height: "auto" }}
+      />
     ))}
     {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
   </figure>
