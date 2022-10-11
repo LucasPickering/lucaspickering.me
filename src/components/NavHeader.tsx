@@ -11,7 +11,7 @@ const NavHeader: React.FC<Props> = ({ overlay = false }) => (
     <nav className={styles.navBar}>
       {/* Home link */}
       <Link href="/">
-        <a className={styles.titleLink}>A Thought</a>
+        <a className={styles.titleLink}>Lucas Pickering</a>
       </Link>
 
       {/* Other links */}
