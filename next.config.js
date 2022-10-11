@@ -7,7 +7,7 @@ module.exports = withMDX({
     ignoreDuringBuilds: true,
   },
   images: {
-    unoptimized: true,
     domains: ["res.cloudinary.com"],
+    loader: "custom",
   },
 });
