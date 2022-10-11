@@ -16,10 +16,9 @@ const HomePage: React.FC<Props> = ({ posts }) => {
         My name's Lucas, and this is my little corner of the World Wide Web.
       </p>
       <p>
-        On occasion, my brain cells align long enough to form what some might
-        call "a thought". And sometimes, these momentary neural eclipses last
-        long enough for me to capture them in digital form. So welcome to my
-        brain's galaxy! Much like the Milky Way, it's mostly vacuous.
+        This site has a mix of coding projects and photography. Eventually I'll
+        probably add some more thought-based coding blog posts too. Just waiting
+        for genius to strike. Click the links to see what you want to see.
       </p>
 
       <h2>Recent Posts</h2>
