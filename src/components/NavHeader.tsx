@@ -16,10 +16,10 @@ const NavHeader: React.FC<Props> = ({ overlay = false }) => (
 
       {/* Other links */}
       <div className={styles.otherLinks}>
-        <Link href="/tags/project">
+        <Link href="/projects">
           <a>Projects</a>
         </Link>
-        <Link href="/tags/photo">
+        <Link href="/photos">
           <a>Photos</a>
         </Link>
         <Link href="/about">

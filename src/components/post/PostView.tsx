@@ -46,7 +46,11 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
           <div className={styles.headerText}>
             <h1 className={styles.postTitle}>{metadata.title}</h1>
             <p className={styles.postSummary}>{metadata.summary}</p>
-            <span className={styles.postDate}>{formatDate(metadata.date)}</span>
+            {metadata.date && (
+              <span className={styles.postDate}>
+                {formatDate(metadata.date)}
+              </span>
+            )}
             {metadata.links && (
               <div className={styles.postLinks}>
                 {Object.entries(metadata.links).map(([key, href]) => (

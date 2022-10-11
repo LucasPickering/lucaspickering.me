@@ -22,9 +22,11 @@ const PostList: React.FC<Props> = ({ posts }) => (
                 <a>{post.metadata.title}</a>
               </Link>
             </h3>
-            <span className={styles.postDate}>
-              {formatDate(post.metadata.date)}
-            </span>
+            {post.metadata.date && (
+              <span className={styles.postDate}>
+                {formatDate(post.metadata.date)}
+              </span>
+            )}
           </div>
 
           <ImageOpt

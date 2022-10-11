@@ -1,14 +1,13 @@
-import { compare } from "./utils";
+import { compare, isDefined } from "./utils";
 import * as posts from "@root/pages/posts";
 
 export interface Post {
   slug: string;
   metadata: {
     title: string;
-    date: string;
+    date?: string; // Ongoing project posts aren't dated
     summary: string;
     banner: string;
-    bannerAlt: string;
     /**
      * Should images be shown in larger format? Useful for photo posts
      */
@@ -38,6 +37,14 @@ export function getAllPosts(sort: boolean = false): Post[] {
     );
   }
   return rv;
+}
+
+/**
+ * Get *dated* posts sorted by date. Post that don't have a date are ongoing
+ * and therefore can't be "recent". It doesn't make sense to show them in a feed
+ */
+export function getRecentPosts(): Post[] {
+  return getAllPosts(true).filter(({ metadata }) => isDefined(metadata.date));
 }
 
 /**
