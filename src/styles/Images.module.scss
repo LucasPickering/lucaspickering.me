@@ -3,6 +3,7 @@
   display: grid;
   grid-auto-flow: row;
   grid-gap: 8px;
+  position: relative;
 
   margin: 24px 0; /* Note: these margins don't collapse because parent is flex */
   width: 100%;

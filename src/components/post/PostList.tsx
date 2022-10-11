@@ -27,7 +27,12 @@ const PostList: React.FC<Props> = ({ posts }) => (
             </span>
           </div>
 
-          <ImageOpt className={styles.banner} publicId={post.metadata.banner} />
+          <ImageOpt
+            className={styles.banner}
+            src={post.metadata.banner}
+            width={800}
+            height={240}
+          />
           <p className={styles.postSummary}>{post.metadata.summary}</p>
         </div>
       ))}

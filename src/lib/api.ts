@@ -8,6 +8,7 @@ export interface Post {
     date: string;
     summary: string;
     banner: string;
+    bannerAlt: string;
     /**
      * Should images be shown in larger format? Useful for photo posts
      */
