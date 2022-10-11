@@ -27,7 +27,7 @@ const PageContainer: React.FC<Props> = ({
     <main className={styles.mainContent}>{children}</main>
 
     <footer className={styles.footer}>
-      <span>Copyright 2021 Lucas Pickering</span>
+      <span>Copyright {new Date().getUTCFullYear()} Lucas Pickering</span>
       <Link href="/">
         <a>Recursion!</a>
       </Link>
