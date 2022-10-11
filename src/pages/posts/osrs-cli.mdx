@@ -1,0 +1,20 @@
+import PostView from "@root/components/post/PostView";
+
+export const metadata = {
+  title: "OSRS CLI",
+  summary: "Convenient CLI for Old School RuneScape.",
+  banner: "lucaspickering.me/osrs-cli/banner.png",
+  links: {
+    Code: "https://github.com/LucasPickering/osrs-cli",
+    Site: "https://osrs.lucaspickering.me",
+  },
+  tags: ["post", "project", "rust", "runescape"],
+};
+
+## What is it?
+
+OSRS CLI is a command line tool for Old School RuneScape that makes it easy to look up prices, hiscores, and more from the terminal. No more opening the browser for simple operations! There's a lot of functionality involved here. See the site (linked above) for full documentation as well as a live demo.
+
+export default ({ children }) => (
+  <PostView metadata={metadata}>{children}</PostView>
+);
