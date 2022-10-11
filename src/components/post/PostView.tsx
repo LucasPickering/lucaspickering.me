@@ -11,6 +11,7 @@ import Link from "next/link";
 
 interface Props {
   metadata: Post["metadata"];
+  children?: React.ReactNode;
 }
 
 const PostView: React.FC<Props> = ({ metadata, children }) => {

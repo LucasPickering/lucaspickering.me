@@ -7,6 +7,7 @@ import Link from "next/link";
 interface Props {
   className?: string;
   isGallery?: boolean;
+  children?: React.ReactNode;
 }
 
 const PageContainer: React.FC<Props> = ({

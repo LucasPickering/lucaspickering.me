@@ -4,6 +4,7 @@ interface CloudinaryContextProps {
   cloudName: string;
   includeOwnBody: boolean;
   secure: boolean;
+  children?: React.ReactNode;
 }
 
 interface ImageProps extends JSX.IntrinsicElements.img {
