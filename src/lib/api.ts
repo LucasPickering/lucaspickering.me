@@ -1,5 +1,5 @@
-import { compare, isDefined } from "./utils";
 import * as posts from "@root/pages/posts";
+import { compare, isDefined } from "./utils";
 
 export interface Post {
   slug: string;
@@ -24,18 +24,12 @@ export interface Post {
 /**
  * Get all defined blog posts.
  */
-export function getAllPosts(sort: boolean = false): Post[] {
+export function getAllPosts(): Post[] {
   const rv = Object.entries(posts).map(([key, post]) => ({
     slug: generateSlug(key),
     // This is a dangerous coercion but who cares
     metadata: post.metadata as Post["metadata"],
   }));
-  if (sort) {
-    // If requested, sort posts by date, *descending*
-    rv.sort(
-      (post1, post2) => -compare(post1.metadata.date, post2.metadata.date)
-    );
-  }
   return rv;
 }
 
@@ -44,7 +38,13 @@ export function getAllPosts(sort: boolean = false): Post[] {
  * and therefore can't be "recent". It doesn't make sense to show them in a feed
  */
 export function getRecentPosts(): Post[] {
-  return getAllPosts(true).filter(({ metadata }) => isDefined(metadata.date));
+  // Filter out undated posts first because the undefined dates wreck the sort
+  const posts = getAllPosts().filter(({ metadata }) =>
+    isDefined(metadata.date)
+  );
+  return posts.sort((post1, post2) => {
+    return -compare(post1.metadata.date, post2.metadata.date);
+  });
 }
 
 /**
@@ -64,7 +64,7 @@ export function getAllTags(): string[] {
  * Get all the posts that have a particular tag.
  */
 export function getPostsByTag(tag: string): Post[] {
-  return getAllPosts(true).filter((post) => post.metadata.tags.includes(tag));
+  return getAllPosts().filter((post) => post.metadata.tags.includes(tag));
 }
 
 /**
