@@ -1,14 +1,14 @@
-import React from "react";
-import Head from "next/head";
-import { Post } from "@root/lib/api";
-import styles from "@root/styles/PostView.module.scss";
-import { formatDate } from "@root/lib/utils";
-import PageContainer from "../PageContainer";
-import ImageOpt from "../ImageOpt";
-import clsx from "clsx";
-import Link from "next/link";
-import { cloudinary } from "@root/lib/cloudinary";
 import { Resize } from "@cloudinary/url-gen/actions";
+import { Post } from "@root/lib/api";
+import { cloudinary } from "@root/lib/cloudinary";
+import { formatDate } from "@root/lib/utils";
+import styles from "@root/styles/PostView.module.scss";
+import clsx from "clsx";
+import Head from "next/head";
+import Link from "next/link";
+import React from "react";
+import ImageOpt from "../ImageOpt";
+import PageContainer from "../PageContainer";
 
 interface Props {
   metadata: Post["metadata"];
