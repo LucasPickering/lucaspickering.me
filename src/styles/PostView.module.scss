@@ -32,8 +32,9 @@
 
 .banner {
   width: 100%;
-  height: 300px;
-  object-fit: cover;
+  height: auto;
+  // Assume the image has important content, and show the whole thing
+  object-fit: contain;
 }
 
 // Styles that get applied if the post is a "gallery", which puts more of a
@@ -44,6 +45,7 @@
   }
 
   .banner {
+    object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
