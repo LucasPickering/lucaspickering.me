@@ -1,0 +1,58 @@
+import Images from "@root/components/Images";
+import PostView from "@root/components/post/PostView";
+
+export const metadata = {
+  title: "Slumber: A TUI HTTP Client",
+  date: "2024-05-17",
+  summary:
+    "Slumber is a configuration-first, Terminal User Interface (TUI) HTTP client.",
+  banner: "lucaspickering.me/slumber/banner.gif",
+  links: {
+    Code: "https://github.com/LucasPickering/slumber",
+    Site: "https://slumber.lucaspickering.me",
+    Install: "https://slumber.lucaspickering.me/artifacts/",
+  },
+  tags: ["post", "project", "rust", "http", "terminal", "tui"],
+};
+
+## Try it out
+
+Wanna skip the reading? Install Slumber now with either of these:
+
+```
+cargo install slumber
+brew install LucasPickering/homebrew-tap/slumber
+```
+
+[Click here for more install options](https://slumber.lucaspickering.me/artifacts/)
+
+Once you've installed Slumber, jump over to [the docs](https://slumber.lucaspickering.me/book/) to start writing your first request collection.
+
+## What is Slumber?
+
+Slumber is a configuration-first, Terminal User Interface (TUI) HTTP client. It's designed to as an alternative to Insomnia, Postman, etc. for those who prefer doing their work in the terminal. The primary principles of the project are:
+
+- It will remain free to use forever
+- You own your data: all configuration and data is stored locally and can be checked into version control
+- It will never be [enshittified](https://en.wikipedia.org/wiki/Enshittification) (looking at you, Insomnia)
+
+In terms of functionality, I had two main goals in mind during development:
+
+- Make a usable HTTP client, that can serve all of a normal web developer's needs, entirely in the terminal. Terminal apps can be harder to learn, but are generally faster to use once you're familiar. Additionally, they tend to perform better and use fewer resources than a GUI.
+- Define configuration first, _outside_ the app. Rather than creating and editing your request definitions in the app, "configuration-first" means you write your configuration in a normal editor, then the app reads it. This has a few benefits:
+  - You can easily migrate and persist your request collection, since you know exactly where it is. It's not hidden in a system directory or a SQLite database, it's right there in a single YAML file.
+  - Similarly, you can easily share your collection with others. By defining a collection in a single file, you can check it into version control. This makes it easy not only to share with others who work on the same service or site as you, it makes it easy for new developers to come into a codebase and start making requests.
+
+## Why does Slumber exist?
+
+There are a lot of HTTP/REST clients out there, so why did I bother making a new one? The primary reason is, when I first started the project in August 2023, I couldn't find any other TUI clients. I had been wanting a good TUI project to try out [Ratatui](https://ratatui.rs/), and at the same time I was perpetually dissatisfied with Insomnia. I found it clunky inefficient to use.
+
+Around a month after I started, Kong released Insomnia 8.0, which [required creating an account to keep using the app](https://github.com/Kong/insomnia/discussions/6590) (more or less). Up to that point I was unsure about the future of the project, but that convinced that this needed to be made.
+
+## Feedback
+
+If you try out Slumber, I'd love to hear your thoughts, whether you love it or hate it. I'm especially interested in feedback on documentation, since this is the hardest thing for me to "test" myself. For bugs and feature requests (including specific requests about documentation), you can [open a GitHub issue](https://github.com/LucasPickering/slumber/issues). For questions and open-ended discussion, open a [GitHub discussion](https://github.com/LucasPickering/slumber/discussions). Alternatively, we have a [Discord](https://discord.gg/G9RbbUsj) where you can leave your feedback or ask questions..
+
+export default ({ children }) => (
+  <PostView metadata={metadata}>{children}</PostView>
+);

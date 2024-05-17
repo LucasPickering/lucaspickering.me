@@ -9,6 +9,7 @@
 
 // Applies only to triple-tick code blocks (not inline)
 pre .code {
+  display: block;
   max-width: 100%;
   overflow-x: auto;
   padding: 8px;

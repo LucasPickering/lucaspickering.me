@@ -17,7 +17,7 @@ const loader: ImageLoader = ({ src }) => {
  */
 const ImageOpt: React.FC<Props> = (props) => (
   // TODO use alt text from cloudinary
-  <Image alt="TODO" loader={loader} {...props} />
+  <Image alt="" loader={loader} {...props} />
 );
 
 export default ImageOpt;

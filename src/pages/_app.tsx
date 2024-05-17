@@ -1,8 +1,8 @@
-import React from "react";
-import Head from "next/head";
-import "@root/styles/global.scss";
 import { MDXProvider } from "@mdx-js/react";
 import Code from "@root/components/Code";
+import "@root/styles/global.scss";
+import Head from "next/head";
+import React from "react";
 
 const components: React.ComponentProps<typeof MDXProvider>["components"] = {
   code: Code,
