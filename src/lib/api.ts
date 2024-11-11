@@ -1,11 +1,12 @@
 import * as posts from "@root/pages/posts";
-import { compare, isDefined } from "./utils";
+import { compose, isDefined } from "./utils";
 
 export interface Post {
   slug: string;
   metadata: {
     title: string;
     date?: string; // Ongoing project posts aren't dated
+    order?: number; // Allows arbitrary sorting of projects, based on gut feeling
     summary: string;
     banner: string;
     /**
@@ -30,21 +31,32 @@ export function getAllPosts(): Post[] {
     // This is a dangerous coercion but who cares
     metadata: post.metadata as Post["metadata"],
   }));
+
+  rv.sort(
+    compose<Post>(
+      // Sort first by `order` field ascending (for projects),
+      // then by date descending (for posts)
+      // then by title, for projects with no order or date
+      [(post) => post.metadata.order ?? Number.MAX_SAFE_INTEGER, "asc"],
+      [(post) => post.metadata.date ?? "1970-01-01", "desc"],
+      [(post) => post.metadata.title, "asc"]
+    )
+  );
+
   return rv;
 }
 
 /**
  * Get *dated* posts sorted by date. Post that don't have a date are ongoing
  * and therefore can't be "recent". It doesn't make sense to show them in a feed
+ *
+ * @param max Limit the number of posts returned
  */
-export function getRecentPosts(): Post[] {
-  // Filter out undated posts first because the undefined dates wreck the sort
+export function getRecentPosts(max?: number): Post[] {
   const posts = getAllPosts().filter(({ metadata }) =>
     isDefined(metadata.date)
   );
-  return posts.sort((post1, post2) => {
-    return -compare(post1.metadata.date, post2.metadata.date);
-  });
+  return posts.slice(0, max ?? posts.length);
 }
 
 /**
