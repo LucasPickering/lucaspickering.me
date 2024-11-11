@@ -8,7 +8,7 @@ export interface Post {
     date?: string; // Ongoing project posts aren't dated
     order?: number; // Allows arbitrary sorting of projects, based on gut feeling
     summary: string;
-    banner: string;
+    banner?: string;
     /**
      * Should images be shown in larger format? Useful for photo posts
      */

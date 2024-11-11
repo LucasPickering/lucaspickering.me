@@ -20,11 +20,13 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
   const isGallery = metadata.isGallery ?? false;
 
   // Get a scaled down version of the banner, for previews and such
-  const bannerSrc = cloudinary
-    .image(metadata.banner)
-    // 1200x627 is recommended size for previews
-    .resize(Resize.fill(1200, 627))
-    .toURL();
+  const bannerSrc =
+    metadata.banner &&
+    cloudinary
+      .image(metadata.banner)
+      // 1200x627 is recommended size for previews
+      .resize(Resize.fill(1200, 627))
+      .toURL();
 
   return (
     <PageContainer
@@ -37,7 +39,7 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
         <title>{`${metadata.title} | Lucas Pickering`}</title>
         <meta name="description" content={metadata.summary} />
         <meta name="og:title" content={metadata.title} />
-        <meta name="og:image" content={bannerSrc} />
+        {bannerSrc && <meta name="og:image" content={bannerSrc} />}
         <meta name="og:description" content={metadata.summary} />
         {/* TODO og:url */}
       </Head>
@@ -62,13 +64,15 @@ const PostView: React.FC<Props> = ({ metadata, children }) => {
             )}
           </div>
 
-          <ImageOpt
-            className={styles.banner}
-            sizes="100vw"
-            src={metadata.banner}
-            width={800}
-            height={300}
-          />
+          {metadata.banner && (
+            <ImageOpt
+              className={styles.banner}
+              sizes="100vw"
+              src={metadata.banner}
+              width={800}
+              height={300}
+            />
+          )}
         </header>
 
         <div className={styles.postBody}>{children}</div>
