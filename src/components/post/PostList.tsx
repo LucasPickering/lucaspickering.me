@@ -1,9 +1,9 @@
-import { formatDate } from "@root/lib/utils";
-import React from "react";
 import { Post } from "@root/lib/api";
+import { formatDate } from "@root/lib/utils";
 import styles from "@root/styles/PostList.module.scss";
-import ImageOpt from "../ImageOpt";
 import Link from "next/link";
+import React from "react";
+import ImageOpt from "../ImageOpt";
 
 interface Props {
   posts: Post[];
@@ -29,12 +29,14 @@ const PostList: React.FC<Props> = ({ posts }) => (
             )}
           </div>
 
-          <ImageOpt
-            className={styles.banner}
-            src={post.metadata.banner}
-            width={800}
-            height={240}
-          />
+          {post.metadata.banner && (
+            <ImageOpt
+              className={styles.banner}
+              src={post.metadata.banner}
+              width={800}
+              height={240}
+            />
+          )}
           <p className={styles.postSummary}>{post.metadata.summary}</p>
         </div>
       ))}

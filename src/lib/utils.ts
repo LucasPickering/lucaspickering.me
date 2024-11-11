@@ -10,14 +10,33 @@ export function formatDate(date: string | Date): string {
   return dateFormat.format(dateObj);
 }
 
-export function compare<T>(value1: T, value2: T): number {
-  if (value1 < value2) {
-    return -1;
-  }
-  if (value1 > value2) {
-    return 1;
-  }
-  return 0;
+type Comparable = string | number | boolean | Date;
+
+export type KeyFn<T> = [(value: T) => Comparable, "asc" | "desc"];
+
+export type Comparator<T> = (value1: T, value2: T) => number;
+
+/**
+ * Build a sorting comparator from key functions
+ * @param keyFns One or more key functions to extract a sortable value, in order
+ *    of priority
+ * @returns A comparator function, to be passed to Array.sort
+ */
+export function compose<T>(...keyFns: KeyFn<T>[]): Comparator<T> {
+  return (a: T, b: T): number => {
+    for (const [keyFn, order] of keyFns) {
+      const factor = order === "asc" ? 1 : -1;
+      const aValue = keyFn(a);
+      const bValue = keyFn(b);
+      if (aValue < bValue) {
+        return -1 * factor;
+      }
+      if (aValue > bValue) {
+        return 1 * factor;
+      }
+    }
+    return 0;
+  };
 }
 
 export function toArray<T>(value: T | T[]): T[] {
