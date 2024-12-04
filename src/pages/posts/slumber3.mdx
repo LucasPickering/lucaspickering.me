@@ -1,0 +1,54 @@
+import PostView from "@root/components/post/PostView";
+
+export const metadata = {
+  title: "Slumber 3.0: More With Less",
+  date: "2024-12-03",
+  summary:
+    "Laying the groundwork for the philosophy of the upcoming Slumber 3.0 release",
+  links: {
+    Code: "https://github.com/LucasPickering/slumber",
+    Site: "https://slumber.lucaspickering.me",
+    Install: "https://slumber.lucaspickering.me/artifacts/",
+  },
+  tags: ["post", "project", "rust", "http", "terminal", "tui"],
+};
+
+## Intro
+
+[Slumber](https://github.com/LucasPickering/slumber) is a terminal-based REST client. I've spent the last few months working on a variety of major features and changes that I plan to bundle together in an upcoming 3.0 release. 3.0 is likely still a few months off, but I'm putting this post out now to gather some feedback on the general approach I'm taking toward 3.0.
+
+## More With Less
+
+The goal with 3.0 is to expand the things you can do within Slumber, while _reducing_ the surface area of the app and making it easier to learn. In other words, **do more with less**. The approach to accomplish this is to offload work onto external tools. This gives a few benefits:
+
+- Fewer Slumber-specific features for new users to learn
+- Users can bring their own tools that they're already familiar with
+- Less code for me to maintain, meaning I can ship features faster
+
+This is a bit nebulous, so here's a concrete example: currently, Slumber has in-app support for querying on a response body via [JSONPath](https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html). This means Slumber has to bundle a JSONPath implementation in its binary, and users are constrained to just JSONPath. The syntax is easy enough to learn, but it's limited and still will be a barrier to entry for some users.
+
+Instead, I plan to replace this query functionality with the ability to pipe the response body through arbitrary shell commands. Instead of JSONPath, you can now use the wildly popular [jq](https://jqlang.github.io/jq/), or any other JSON filtering tool you may like. It also means Slumber instantly picks up support for filtering CSV, XML, or any other response type. All you have to do is install a CLI program that can manipulate it.
+
+## Why? Why Now?
+
+I've spent well over a year now developing Slumber, and while it's more than capable as a daily driver, it still has sharp edges and lacks a lot of features I'd like to implement. Rather than chase feature after feature, my hope is that by offloading a lot of the work onto other tools, Slumber can access far more features than I would ever be able to implement myself.
+
+In addition to the development aspect, I'm aiming to make the tool easier to learn. No one likes reading docs, so if I can make it intuitive to integrate with tools you already know, you don't have to. The collection format, and the chain system in particular, is a major point of friction.
+
+## What Else?
+
+Using shell commands for data processing is just one example of doing more with less. The other major change I plan to make is around the collection format. **My plan is to replace YAML with a more expressive language.** The two languages I've spent significant type prototyping with are Lua and HCL, but I'm still considering options here. This is a huge undertaking so I plan to write a future blog post about it; keep your eyes peeled.
+
+## The Cons
+
+The obvious downside here is that users now have to install separate tools to get functionality that was previously included. In practice, I think this is a small negative that is vastly outweighed by the benefits.
+
+This definitely does tilt Slumber more in the direction of power users. Realistically though, that was already my target demographic. TUIs are typically used by people who are already comfortable in the terminal, and are probably familiar with tools such as `jq`.
+
+## What's Next?
+
+[I've opened a discussion on GitHub]() to collect feedback on my thoughts here. Head over there and let me know what you think! Follow that discussion to stay up to date with future updates and beta testing news. You can also Watch the repo to be notified of new discussions and beta releases as they're posted.
+
+export default ({ children }) => (
+  <PostView metadata={metadata}>{children}</PostView>
+);

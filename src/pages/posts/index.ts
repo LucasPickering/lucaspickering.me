@@ -12,5 +12,6 @@ export * as mtWashington from "./mt-washington.mdx";
 export * as laulud from "./laulud.mdx";
 export * as osrsCli from "./osrs-cli.mdx";
 export * as slumber from "./slumber.mdx";
+export * as slumber3 from "./slumber3.mdx";
 export * as soze from "./soze.mdx";
 export * as terra from "./terra.mdx";
