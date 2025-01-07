@@ -12,10 +12,10 @@ const Page404: React.FC = () => (
       Well shucks. Now I look like a real grade A doofus maloofus huh. Sure do
       have egg on my face. What an embarrassment. Guy calls himself a "web dude"
       or whatever and still has broken links on his site? So sad. And now you're
-      feeling lost, like the little prarie doggo up there. Just kinda wondering,
-      "Am I stuck here forever?". Well yes, you are! Your browser actually
-      doesn't work anymore. Those links up top are just a sham. Your back button
-      has been disabled. Enjoy!
+      feeling lost, like the little prairie doggo up there. Just kinda
+      wondering, "Am I stuck here forever?". Well yes, you are! Your browser
+      actually doesn't work anymore. Those links up top are just a sham. Your
+      back button has been disabled. Enjoy!
     </p>
   </PageContainer>
 );
